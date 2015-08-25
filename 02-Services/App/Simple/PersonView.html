@@ -1,0 +1,28 @@
+﻿<div class="panel panel-default" ng-controller="PersonController as vm">
+    <!-- Default panel contents -->
+    <div class="panel-heading">{{vm.title}}</div>
+    <div class="panel-body">
+        <p>PersonController use services to get data from mock service and show them in the page.</p>
+    </div>
+    <!-- Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in vm.persons">
+                <td>{{person.Id}}</td>
+                <td>{{person.FirstName}}</td>
+                <td>{{person.LastName}}</td>
+                <td>{{person.Age}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

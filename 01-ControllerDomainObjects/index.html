@@ -4,52 +4,30 @@
 <head>
     <meta charset="utf-8"/>
     <title>01 - Controller</title>
-    <!--<link rel="stylesheet" href="Content/bootstrap.css"/>-->
-    <link rel="stylesheet" href="Content/bootstrap.css" />
-
-    <!--<style>
-        [class*="span"] {
-            background-color: #cca;
-            font-weight: bold;
-            margin-bottom: 10px;
-            margin-top: 10px;
-            text-align: center;
-        }
-    </style>-->
+    <link rel="stylesheet" href="Content/bootstrap.css"/>
 </head>
 <body ng-app="SimpleModule">
-<div class="container" ng-controller="SimpleController as vm">
-    <h1>01-Controller, Domain Objects</h1>
-    <ul>
-        <li>ng-app - to bind the application module to the html page</li>
-        <li>ng-controller - to bind the controller to the div</li>
-        <li>ng-module - to bind the control value to the controller property => two way binding</li>
-    </ul>
-    
-    <div class="row">
-        <div class="col-md-3">
-            <label for="spanTitle"> Controller property title:</label>
-            <span id="spanTitle" class="form-control">{{vm.title}}</span>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">01 - Controller</div>
+            </div>
         </div>
-        <div class="col-md-9">
-            <label for="controllerTitle">Input control to change it:</label>
-            <input id="controllerTitle" class="form-control" type="text" required placeholder="enter text" ng-model="vm.title"/>
-
-        </div>
+    </nav>
+    <div class="container">
+        <div ng-include="'App/Simple/SimpleView.html'"></div>
     </div>
-</div>
+    <!-- Library Scripts -->
+    <script src="Scripts/angular.js"></script>
 
 
-<!-- Library Scripts -->
-<script src="Scripts/angular.js"></script>
+    <!-- Application Script -->
+    <script src="App/App.js"></script>
 
-
-<!-- Application Script -->
-<script src="App/App.js"></script>
-
-<!-- Domain Classes -->
-<!-- Services -->
-<!-- Controllers -->
-<script src="App/Simple/SimpleController.js"></script>
+    <!-- Domain Classes -->
+    <!-- Services -->
+    <!-- Controllers -->
+    <script src="App/Simple/SimpleController.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=cs&amp;skin=sunburst"></script>
 </body>
 </html>

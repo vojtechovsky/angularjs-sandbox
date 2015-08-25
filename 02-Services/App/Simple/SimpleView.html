@@ -1,0 +1,72 @@
+﻿<div class="panel panel-default" ng-controller="SimpleController as vm">
+    <!-- Default panel contents -->
+    <div class="panel-heading">01-Controller, Domain Objects</div>
+    <div class="panel-body">
+        <p>
+            <ul>
+                <li>ng-app - to bind the application module to the html page</li>
+                <li>ng-controller - to bind the controller to the div</li>
+                <li>ng-module - to bind the control value to the controller property => two way binding</li>
+            </ul>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <label for="spanTitle"> Controller property title:</label>
+            <span id="spanTitle">{{vm.title}}</span>
+        </div>
+        <div class="col-md-9">
+            <label for="controllerTitle">Input control to change it:</label>
+            <input id="controllerTitle" class="form-control" type="text" required placeholder="enter text" ng-model="vm.title" />
+
+        </div>
+    </div>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>App.ts = ng-app</h3>
+            <p>
+                <b>index.html</b> file has <b>body</b> with ng-app="SimpleModule"
+                It defines we will use main module( = application) with name "SimpleModule".
+                Modules in typescript are the same like namespace in c#. It defines the scope of the module.
+                We van use import/export to use class or interface from different namespace.
+            </p>
+            <pre class="prettyprint">module App { 
+    angular.module("SimpleModule", []);
+}
+            </pre>
+        </div>
+        <div class="col-md-8">
+            <h3>SimpleController.ts = ng-controller</h3>
+            <p>
+                <b>div</b> on the <b>index.html</b> has ng-controller="SimpleController"
+                This Specifies we would like to use the "SimpleController" controller of the given "SimpleModule" module
+            </p>
+            <pre class="prettyprint">module App.Simple {
+    class SimpleController {
+        title: string;
+        constructor() {
+            this.title = "Simple Controller";
+        }
+    }
+    angular.module("SimpleModule", [])
+        .controller("SimpleController", SimpleController);
+}
+            </pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Input = ng-module</h3>
+            <p>
+                <b>input</b> tag has defined two way binding with "SimpleController" by using <b>ng-module</b> inside the input tag
+            </p>
+            <pre class="prettyprint">
+                    
+                    input id="controllerTitle" type="text" ng-model="vm.title" 
+           
+</pre>
+        </div>
+    </div>
+</div>
