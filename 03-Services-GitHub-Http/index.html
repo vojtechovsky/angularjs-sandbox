@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>03 - Services HTTP - GitHub</title>
+    <!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=cs&amp;skin=sunburst"></script>-->
+    <link rel="stylesheet" href="Content/bootstrap.css" />
+
+</head>
+<body ng-app="GitHubModule">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">Services</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div ng-include="'App/GitHub/GitHubView.html'"></div>
+    </div>
+
+    <!-- Library Scripts -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-mocks.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+
+    <!-- Application Script -->
+    <script src="App/App.js"></script>
+
+    <!-- Domain Classes -->
+    <script src="App/GitHub/IUser.js"></script>
+    <script src="App/GitHub/User.js"></script>
+
+    <!-- Services -->
+    <script src="App/Common/CommonServices.js"></script>
+    <script src="App/Common/GitHubService.js"></script>
+
+    <!-- Controllers -->
+    <script src="App/GitHub/GitHubController.js"></script>
+</body>
+</html>
+

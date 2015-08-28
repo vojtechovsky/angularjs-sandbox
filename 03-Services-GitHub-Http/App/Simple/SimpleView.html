@@ -1,0 +1,21 @@
+﻿<div class="panel panel-default" ng-controller="SimpleController as vm">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Objectives: Controller, Domain Object, Interface, View</div>
+    <div class="panel-body">
+        <p>
+Are we still in bussiness?
+        </p>
+    </div>
+    <div >
+        <div >
+            <label for="spanTitle"> Controller property title:</label>
+            <span id="spanTitle">{{vm.title}}</span>
+
+        </div>
+        <div >
+            <label for="controllerTitle">Input control to change it:</label>
+            <input id="controllerTitle" class="form-control" type="text" required placeholder="enter text" ng-model="vm.title" />
+
+        </div>
+</div>
+    </div>

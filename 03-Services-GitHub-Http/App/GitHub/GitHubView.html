@@ -1,0 +1,55 @@
+﻿<div class="panel panel-default" ng-controller="GitHubController as vm">
+    <!-- Default panel contents -->
+    <div class="panel-heading">title: {{vm.Title}}</div>
+    <div class="panel-body">
+        <p>GitHub controller with GitHub Service</p>
+    </div>
+
+    <form name="searchUser" ng-submit="vm.Search()">
+        <input type="search" placeholder="UserName to find" ng-model="vm.UserName" />
+        <input type="submit" value="Search" />
+    </form>
+    <!-- Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>login</td>
+                <td>{{vm.User.login}}</td>
+            </tr>
+            <tr>
+                <td>id</td>
+                <td>{{vm.User.id}}</td>
+            </tr>
+            <tr>
+                <td>avatar_url</td>
+                <td>{{vm.User.avatar_url}}</td>
+            </tr>
+            <tr>
+                <td>gravatar_id</td>
+                <td>{{vm.User.gravatar_id}}</td>
+            </tr>
+            <tr>
+                <td>url</td>
+                <td>{{vm.User.url}}</td>
+            </tr>
+            <tr>
+                <td>html_url</td>
+                <td>{{vm.User.html_url}}</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>{{vm.User.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <img class="img-rounded" ng-src="{{vm.User.avatar_url}}" title="{{vm.User.name}}" alt="{{vm.User.name}}" style="width:120px;"/>
+    </div>
+</div>
