@@ -1,0 +1,25 @@
+﻿<div class="panel panel-default" ng-controller="VideoController as vm">
+    <!-- Default panel contents -->
+    <div class="panel-heading">From Controller: {{vm.title}}</div>
+    <div class="panel-body">
+        <p>VideoController use services from apiary.io and show the data on the page.</p>
+    </div>
+    <button ng-click="vm.loadVideos()">Load</button>
+    <!-- Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="video in vm.videos">
+                <td>{{video.id}}</td>
+                <td>{{video.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

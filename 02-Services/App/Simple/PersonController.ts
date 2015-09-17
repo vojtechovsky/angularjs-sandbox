@@ -1,4 +1,6 @@
 ﻿module App.Simple {
+    //*
+    //
     class PersonController {
         title: string;
         showImage: boolean;

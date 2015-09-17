@@ -1,9 +1,9 @@
 module App.Common {
-	interface IDataAccessService {
+   export interface IDataAccessService {
 		getProductResource(): ng.resource.IResourceClass<IPersonResource>;
 	}
 
-	interface IPersonResource
+    export interface IPersonResource
 		extends ng.resource.IResource<App.Simple.IPerson> {
 
 	}

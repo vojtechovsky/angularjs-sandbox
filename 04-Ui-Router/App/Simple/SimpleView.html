@@ -1,4 +1,4 @@
-﻿<div class="panel panel-default" ng-controller="SimpleController as vm">
+﻿<div class="panel panel-default" >
     <!-- Default panel contents -->
     <div class="panel-heading">Objectives: Controller, Domain Object, Interface, View</div>
     <div class="panel-body">
@@ -6,13 +6,13 @@
         <div>
             <div>
                 <label for="divTitle"> Controller property title:</label>
-                <div id="divTitle">{{vm.title}}</div>
+                <div id="divTitle">{{controller.title}}</div>
                 <label for="divServiceName"> Service Name:</label>
-                <div id="divServiceName">{{vm.serviceName}}</div>
+                <div id="divServiceName">{{controller.serviceName}}</div>
             </div>
             <div>
                 <label for="controllerTitle">Input control to change it:</label>
-                <input id="controllerTitle" class="form-control" type="text" required placeholder="enter text" ng-model="vm.title" />
+                <input id="controllerTitle" class="form-control" type="text" required placeholder="enter text" ng-model="controller.title" />
             </div>
         </div>
     </div>
