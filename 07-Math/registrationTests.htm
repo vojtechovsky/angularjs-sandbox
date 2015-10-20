@@ -1,0 +1,46 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Spec Runner: Jasmine Core</title>
+
+    <link href="css/jasmine.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jasmine.js"></script>
+    <script type="text/javascript" src="Scripts/jasmine-html.js"></script>
+    <script type="text/javascript" src="Scripts/sinon-1.9.1.js"></script>
+
+    <script type="text/javascript" src="Scripts/angular.min.js"></script>
+
+    <!--
+    <script type="text/javascript" src="../Angular4DotNet/Scripts/registration-module.js"></script>
+    <script type="text/javascript" src="../Angular4DotNet/Scripts/Courses/courses-controller.js"></script>
+    <script type="text/javascript" src="../Angular4DotNet/Scripts/Courses/course-repository.js"></script>
+    -->
+
+    <script type="text/javascript" src="courses-controller-tests.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            var jasmineEnv = jasmine.getEnv();
+
+            var htmlReporter = new jasmine.TrivialReporter();
+            jasmineEnv.addReporter(htmlReporter);
+            jasmineEnv.specFilter = function (spec) {
+                return htmlReporter.specFilter(spec);
+            };
+
+            window.onload = function () {
+                execJasmine();
+            };
+
+            function execJasmine() {
+                jasmineEnv.execute();
+            }
+
+        })();
+    </script>
+
+</head>
+<body>
+</body>
+</html>

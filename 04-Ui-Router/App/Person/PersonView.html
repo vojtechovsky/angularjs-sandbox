@@ -1,0 +1,38 @@
+﻿<div class="panel panel-default" >
+    <!-- Default panel contents -->
+    <div class="panel-heading">From Controller: {{controller.title}}</div>
+    <div class="panel-body">
+        <p>PersonController use services from data service</p>
+    </div>
+    <button ng-click="controller.loadPersons()">Load</button>
+    <!-- Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+                <th>Born</th>
+                <th></th>
+                <!--id: number;
+                firstName: string;
+                lastName: string;
+                age: number;
+                born: Date;-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in controller.persons">
+                <td>{{person.id}}</td>
+                <td>{{person.firstName}}</td>
+                <td>{{person.lastName}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.born}}</td>
+                <td> <button ng-click="controller.updatePerson(person)">edit</button> <button ng-click="controller.deletePerson(person)">delete</button>   </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

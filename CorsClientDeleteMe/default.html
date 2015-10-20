@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <h3>Cors Request</h3>
+<button id="getPersons">Get Persons</button>
+<pre id="output"></pre>
+<script src="Scripts/jquery-2.1.4.min.js"></script>
+<script>
+    $(function () {
+        var showResults = function(data) {
+            $("#output").text(JSON.stringify(data,null,4));
+        };
+
+        var getJsonPersons = function() {
+            var url = "http://localhost:61405/api/Person/Read";
+            $.get(url).always(showResults);
+        };
+
+        $("#getPersons").click(getJsonPersons);
+    });
+
+
+</script>
+</body>
+</html>
