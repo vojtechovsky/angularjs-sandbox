@@ -10,7 +10,7 @@
         serviceName : string;
 
         static $inject = ["SimpleService"];
-        constructor(private service: App.ApiaryVideo.SimpleService) {
+        constructor(private service: App.Simple.SimpleService) {
 
             this.title = "CONTROLLER is alive! ";
             this.serviceName = service.getServiceName();

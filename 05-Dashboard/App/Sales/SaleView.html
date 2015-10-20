@@ -1,0 +1,52 @@
+﻿<div class="well">
+    <h1>Marketing / Sales</h1>
+    
+    <div class="div-table">
+        <div class="row header">
+            <div class="col-sm-4">KUNDE</div>
+            <div class="col-sm-3">THEMA</div>
+            <div class="col-sm-2">VOLUMEN</div>
+            <div class="col-sm-1 text-center">CHANCE</div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1 round-buttons">
+                <!--new sale-->
+                <a ui-sref="sale.edit" ng-hide="sCtrl.$state.includes('**.edit')">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+                <!--new sale-->
+            </div>
+        </div> <!--row header-->
+        <!--ui-view for the new sale-->
+        <div class="row table-row" >
+            <div ui-view class="col-sm-12 kw-edit-mode" ng-show="sCtrl.$state.includes('*.edit', {id: null})"></div>
+        </div>
+
+        <!--repeater for the collection-->
+        <div class="row table-row" ng-repeat="sale in sCtrl.sales" ng-switch on="sCtrl.$state.includes('**.edit', { id: sale.id })">
+            <!--list mode-->
+            <div ng-switch-when="false" class="switch">
+                <div class="col-sm-4 text-right">{{sale.name}}</div>
+                <div class="col-sm-2 text-right">{{sale.category}}</div>
+                <div class="col-sm-2 text-right">{{sale.volume | number}}</div>
+                <div class="col-sm-2 text-right">{{sale.chance}}%
+                    <span class="glyphicon glyphicon-chevron-up green" ng-show="{{sale.difference > 0}}"></span>
+                    <span class="glyphicon glyphicon-chevron-down red" ng-show="{{sale.difference < 0}}"></span>
+                    <span class="glyphicon glyphicon-minus blue-light" ng-show="{{sale.difference === 0}}"></span>
+                </div>
+                <div class="col-sm-2 buttons">
+                    <a ng-hide="sCtrl.$state.includes('*.edit')" ui-sref=".edit({id: sale.id})" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></a>
+                    <button ng-hide="sCtrl.$state.includes('*.edit')" ng-click="sCtrl.remove(sale)" class="btn btn-default">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </div>
+            <!--edit mode-->
+            <div ng-switch-when="true" class="switch">
+                <div ui-view class="col-sm-12 kw-edit-mode"></div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <h2 class="lead text-center">Top 5 Leads</h2>
+</div>

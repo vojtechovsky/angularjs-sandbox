@@ -1,0 +1,32 @@
+﻿<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Objectives: Controller, Domain Object, Interface, View</div>
+    <div class="panel-body">
+
+        <div>
+            <div>
+                <label for="divTitle"> Controller property title:</label>
+                <div id="divTitle">{{controller.title}}</div>
+                <label for="divServiceName"> Service Name:</label>
+                <div id="divServiceName">{{controller.serviceName}}</div>
+            </div>
+            <div>
+                <label for="controllerTitle">Input control to change it:</label>
+                <input id="controllerTitle" class="form-control" type="text" required placeholder="enter text" ng-model="controller.title"/>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-info" ui-sref="simple.child">Simple Child</a>
+    <!--<div class="ui-view"></div>-->
+    <div class="row table-row" ng-switch on="controller.$state.includes('*.child')">
+        <div ng-switch-when="false" class="switch">
+            <i>no child so far, please click on the button</i>
+        </div>
+        <div ng-switch-when="true" class="switch">
+            <div ui-view class="col-sm-12 kw-edit-mode">
+                <h4>Here we go, there is a new "Child" rendered</h4>
+            </div>
+        </div>
+    </div>
+
+</div>

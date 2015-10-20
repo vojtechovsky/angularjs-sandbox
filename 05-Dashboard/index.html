@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>03 - Services HTTP - GitHub</title>
+    <link rel="stylesheet" href="Content/bootstrap.min.css"/>
+    <link href="Content/dashboard.css" rel="stylesheet"/>
+</head>
+<body ng-app="dashboardApplication">
+<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+
+    <div class="container">
+        <a href="#" class="pull-left">
+            <img src="Content/kw.png"/>
+        </a>
+        <div class="separator">
+        </div>
+        <h1>ENTERPRISE DASHBOARD</h1>
+        <a href="#" class="pull-right"> Jan.-Aug. 2015 </a>
+        <!-- Collection of nav links -->
+        <ul class="nav navbar-nav hidden">
+            <li><a ui-sref="simple">Simple</a></li>
+            <li><a ui-sref="finance">Finance</a></li>
+            <li><a ui-sref="project">Project</a></li>
+            <li><a ui-sref="sale">Marketing/Sales</a></li>
+            <li><a ui-sref="hr">Human Resources</a></li>
+            <li><a ui-sref="all">All</a></li>
+        </ul>
+    </div>
+</nav>
+    <div class="container" ui-view>
+        <!--ui-router scope-->
+    </div>
+
+
+    <!-- Library Scripts -->
+    <script src="Scripts/jquery-2.1.3.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-sanitize.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+
+    <!--Library Scripts - devexpress-->
+    <script src="Scripts/globalize.min.js"></script>
+    <script src="Scripts/dx.chartjs.js"></script>
+
+    <!--Library Scripts - lodash-->
+    <!--not now-->
+    <!-- Application Script -->
+    <script src="App/App.js"></script>
+
+    <!-- Domain Classes -->
+    <script src="App/Common/CommonModel.js"></script>
+    <script src="App/Sales/Sale.js"></script>
+    <script src="App/Finance/FinanceReportData.js"></script>
+    <script src="App/Project/ProjectReportData.js"></script>
+    <script src="App/HumanResource/HumanResourceReportData.js"></script>
+
+    <!-- Services -->
+    <script src="App/Common/CommonServices.js"></script>
+    <script src="App/Common/DevexpressService.js"></script>
+    <script src="App/Simple/SimpleService.js"></script>
+    <script src="App/Sales/SaleService.js"></script>
+    <script src="App/Finance/FinanceService.js"></script>
+    <script src="App/Project/ProjectService.js"></script>
+    <script src="App/HumanResource/HumanResourceService.js"></script>
+
+    <!-- Controllers -->
+    <script src="App/Simple/SimpleController.js"></script>
+    <script src="App/Finance/FinanceController.js"></script>
+    <script src="App/Project/ProjectController.js"></script>
+    <script src="App/HumanResource/HumanResourceController.js"></script>
+    <script src="App/Sales/SaleController.js"></script>
+
+    <footer class="container">
+        <div class="navbar navbar-default navbar-fixed-bottom">
+            <br />
+            <p class="text-center bottom">KW Software Copyright (c) 2015</p>
+        </div>
+    </footer>
+</body>
+</html>
