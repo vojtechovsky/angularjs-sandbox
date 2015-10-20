@@ -8,6 +8,8 @@
         }
     }
 
+    //angular please give me back the instance of the module
+    // and register a new controller object
     angular.module("SimpleModule")
         .controller("SimpleController", SimpleController);
 }
