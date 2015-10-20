@@ -17,9 +17,16 @@
             });
         }
 
-        //loadVideos() {
-        //  this.videos =  this.service.getVideos();
-        //}
+        public mockVideos() {
+            this.videos = [
+                { id: 1, title: "mock video 01" },
+                { id: 2, title: "mock video 02" },
+                { id: 3, title: "mock video 03" },
+                { id: 4, title: "mock video 04" },
+                { id: 5, title: "mock video 05" },
+                { id: 6, title: "mock video 06" }
+            ]
+        }
     }
 
     //registration of the controller

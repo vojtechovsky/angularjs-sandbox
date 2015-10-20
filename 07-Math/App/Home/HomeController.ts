@@ -1,8 +1,18 @@
 ﻿module App.Home {
     
     class HomeController {
+
+        gotoState : string;
+
         static $inject = ["$state"];
-        constructor(private $state: angular.ui.IStateService) {  }
+        constructor(private $state: angular.ui.IStateService) {
+            this.gotoState = "mathematic";
+        }
+
+        public getState() {
+            this.$state.go(this.gotoState);
+        }
+
     }
 
     //get the application instance

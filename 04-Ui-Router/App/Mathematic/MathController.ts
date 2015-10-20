@@ -71,16 +71,17 @@
                 operandSymbol: ["+", "-", ".", "/"],
                 numbers: [num1, num2],
                 result: 0,
-                inputResult: ResultType.None,
+                inputResultType: ResultType.None,
                 inputTyped: null,
                 inputFeedback: "",
                 inputResolved: false,
                 numberOfTrial: 0,
                 level: 1,
                 subLevel: 1,
-                duration: new Date(0),
+                duration: new Date(),
                 date: new Date()
             };
+
             res.result = this.getResult(res.operand, res.numbers);
 
 

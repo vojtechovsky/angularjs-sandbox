@@ -1,25 +1,14 @@
 ﻿module App {
 
-    class HomeState implements angular.ui.IState {
-        name = "home";
-        url = "/home";
-        controller = "HomeController";
-        controllerAs = "controller";
-        templateUrl = "App/HomeView.html";
-        children = [
-            new App.Mathematic.MathState()
-        ];
-    }
-
     class AppConfiguration {
         static $inject = ["$stateProvider"];
         constructor(private stateHelperProvider: angular.ui.IStateProvider) {
-            stateHelperProvider.state(new HomeState());
-          //  stateHelperProvider.state(new App.Mathematic.MathState());
+            stateHelperProvider.state(new App.Home.HomeState());
+            stateHelperProvider.state(new App.Mathematic.MathState());
         }
     }
 
-    class Configuration {
+    class AllInOneConfiguration {
 
         static $inject = ["$stateProvider"];
         constructor(private stateProvider: angular.ui.IStateProvider) {
@@ -44,9 +33,9 @@
     app.config(AppConfiguration);
 
     //configure the state provider
-    //app.config(["$stateProvider", ($stateProvider) => { return new Configuration($stateProvider); }]);
+    //app.config(["$stateProvider", ($stateProvider) => { return new AllInOneConfiguration($stateProvider); }]);
 
     //default route to go on the app initialization
-    app.run(["$state", $state => { $state.transitionTo("home"); }]);
    // app.run(["$state", $state => { $state.transitionTo("home"); }]);
+    app.run(["$state", $state => { $state.transitionTo("home"); }]);
 }

@@ -20,25 +20,14 @@
         videos: App.ApiaryVideo.IVideo[];
 
         static $inject = ["$resource"];
-        constructor(private $resource: ng.resource.IResourceService ) {
-            
+        constructor(private $resource: ng.resource.IResourceService) {
+
         }
-        
-        //getVideos(): IVideo[] {
-            
-        //    this.$resource(VIDEO_URL).query((data: App.ApiaryVideo.IVideo[]) => {
-        //        this.videos = data;
-        //    });
-
-        //    return this.videos;
-
-        //}
 
         getVideoResourceClass(): ng.resource.IResourceClass<IResourceVideo> {
-
             return this.$resource(VIDEO_URL);
-            
         }
+
     }
 
     //get the CommonServices module
