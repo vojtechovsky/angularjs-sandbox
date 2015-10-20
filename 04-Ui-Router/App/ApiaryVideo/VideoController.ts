@@ -17,9 +17,10 @@
             });
         }
 
-        //loadVideos() {
-        //  this.videos =  this.service.getVideos();
-        //}
+        public loadVideos() {
+            alert("loadVideos");
+          //this.videos =  this.service.getVideos();
+        }
     }
 
     //registration of the controller

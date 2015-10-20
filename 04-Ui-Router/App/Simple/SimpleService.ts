@@ -19,7 +19,9 @@
     }
 
     // get the instance of CommonServices module from angular
-    var module = angular.module("CommonServices");
+    // using "let" is preferable in typescript.
+    // "var" is accessable before the instance is created so it is bad practice
+    let module = angular.module("CommonServices");
 
     // - register the "SimpleService" into "CommonServices"
     module.service("SimpleService", SimpleService);

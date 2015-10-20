@@ -1,0 +1,70 @@
+﻿<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-body">
+        <p>Mathematic version 0.1 - {{controller.title}}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm2"></div>
+    <div class="col-sm2">{{controller.task.numbers[0]}}</div>
+    <div class="col-sm1">{{controller.task.operandSymbol[controller.task.operand]}}</div>
+    <div class="col-sm2">{{controller.task.numbers[1]}}</div>
+    <div class="col-sm1">=</div>
+    <div class="col-sm2">
+        <form name="resultForm" ng-submit="controller.next()">
+            <input type="number" required autofocus id="inputTyped" ng-model="controller.task.inputTyped" ng-focus="true"/>
+            <input type="button" ng-click="controller.clear()" value="Clear"/>
+            <input type="submit" value="Next"/>
+        </form>
+        
+    </div>
+    <div class="col-sm2"></div>
+</div>
+<div class="row">
+    <div>
+
+       
+        <button ng-click="controller.clear()">Clear</button>
+        <button ng-click="controller.next()">Next</button>
+        <pre> {{controller.task.inputTyped}}</pre>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        {{controller.task.inputFeedback}}
+    </div>
+</div>
+<div class="row">
+    <ul class="col-md-6 col-md-offset-3 list-unstyled list-inline">
+        <li ng-repeat="task in controller.tasks">{{task.inputResultType}}</li>
+    </ul>
+</div>
+<!-- Table
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Operand</th>
+        <th>Number</th>
+        <th>Result</th>
+        <th>Duration</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="task in controller.tasks">
+        <td>{{task.numbers[0]}}</td>
+        <td>{{task.operandSymbol[task.operand]}}</td>
+        <td>{{task.numbers[1]}}</td>
+        <td>{{task.result}}</td>
+        <td>{{task.duration}}</td>
+        <td>{{task.date}}</td>
+        <td> <button ng-click="controller.updatePerson(person)">edit</button> <button ng-click="controller.deletePerson(person)">delete</button> </td>
+    </tr>
+    </tbody>
+</table>
+    -->
+
+
+

@@ -29,7 +29,21 @@
                         controller: "VideoController",
                         controllerAs: "controller",
                         templateUrl: "App/ApiaryVideo/VideoView.html"
-                    });
+                })
+                .state("person", <ng.ui.IState>
+                {
+                    url: "/person",
+                    controller: "PersonController",
+                    controllerAs: "controller",
+                    templateUrl: "App/Person/PersonView.html"
+                })
+                .state("mathematic", <ng.ui.IState>
+                {
+                    url: "/mathematic",
+                    controller: "MathController",
+                    controllerAs: "controller",
+                    templateUrl: "App/Mathematic/MathView.html"
+                });
         }
     }
 
@@ -47,7 +61,9 @@
     //        return new Configuration($stateProvider);
     //    }
     //]);
-    angular.module("DemoServiceModule", ["ui.router", "CommonServices"])
-        .config(
-        ["$stateProvider", ($stateProvider) => { return new Configuration($stateProvider); }]);
+    let app = angular.module("DemoServiceModule", ["ui.router", "CommonServices"]);
+    app.config(["$stateProvider", ($stateProvider) => { return new Configuration($stateProvider); }]);
+
+    //default route to go on the app initialization
+    app.run(["$state", $state => { $state.transitionTo("mathematic"); }]);
 }
