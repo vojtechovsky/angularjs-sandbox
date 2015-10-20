@@ -1,0 +1,51 @@
+﻿<h1> NEU/EDIT</h1>
+<div class="row">
+    <div class="col-sm-12">
+        <form name="saleForm" ng-submit="vm.save(vm.sale)" novalidate class="form-horizontal">
+            
+            <div class="form-group">
+                <label for="editSaleName" class="control-label col-sm-5">Kunde</label>
+                <div class="col-sm-7">
+                    <input type="text" id="editSaleName" class="form-control text-right" ng-model="vm.sale.name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="editSaleName" class="control-label col-sm-5">THEMA</label>
+                <div class="col-sm-7">
+                    <input type="text" id="editSaleCategory" class="form-control text-right" ng-model="vm.sale.category">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="editVolume" class="control-label col-sm-5">VOLUMEN</label>
+                <div class="col-sm-7">
+                    <input type="text" id="editVolume" class="form-control text-right" ng-model="vm.sale.volume">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="editSaleChance" class="control-label col-sm-5">CHANCE</label>
+                <div class="col-sm-7">
+                    <input type="text" id="editSaleChance" class="form-control text-right" ng-model="vm.sale.chance">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="editDifference" class="control-label col-sm-5">DIFFERENCE</label>
+                <div class="col-sm-7">
+                    <input type="text" id="editDifference" class="form-control text-right" ng-model="vm.sale.difference">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-7 col-sm-offset-5">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a class="btn btn-default" ui-sref="^.">
+                        <span>Cancel</span>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

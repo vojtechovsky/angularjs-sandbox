@@ -1,0 +1,34 @@
+﻿<div class="well">
+    <h2>Marketing / Sales</h2>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>KUNDE</th>
+                <th>THEMA</th>
+                <th>VOLUMEN</th>
+                <th>CHANCE</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="sale in sCtrl.sales">
+                <td>{{sale.name}}</td>
+                <td>{{sale.category}}</td>
+                <td>{{sale.volume | number}}</td>
+                <td>
+                    {{sale.chance}}%
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-chevron-up green" ng-show="{{sale.difference > 0}}"></span>
+                    <span class="glyphicon glyphicon-chevron-down red" ng-show="{{sale.difference < 0}}"></span>
+                    <span class="glyphicon glyphicon-minus blue-light" ng-show="{{sale.difference === 0}}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <h2 class="lead text-center">Top 5 Leads</h2>
+</div>
