@@ -27,6 +27,7 @@
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\home.css" />
     <Content Include="css\jasmine.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\angular-ui-router.min.js" />
