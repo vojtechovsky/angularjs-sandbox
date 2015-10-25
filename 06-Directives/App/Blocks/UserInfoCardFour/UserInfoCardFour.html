@@ -1,0 +1,12 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading" ng-click="vm.collapseCard()">{{user.firstName}} {{user.lastName}}</div>
+    <div class="panel-body" ng-hide="vm.isCollapsedCard">
+        <user-info-address-four address="user.address"></user-info-address-four>
+        <br />
+        <div ng-show="!!user.rank">
+            <h4>Rank:</h4>
+            <div>{{user.rank}}</div>
+        </div>
+        <br />
+    </div>
+</div>

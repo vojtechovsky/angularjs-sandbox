@@ -1,0 +1,11 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">{{controller.user.firstName}} {{controller.user.lastName}}</div>
+    <div class="panel-body">
+        <div ng-show="!!controller.user.address">
+            <h4>Address</h4>
+            <div>{{controller.user.address.street}}</div>
+            <div>{{controller.user.address.city}}</div>
+            <div>{{controller.user.address.zip}}</div>
+        </div>
+    </div>
+</div>

@@ -22,15 +22,51 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Blocks\UserInfoCardFour\UserInfoFourAddress.html" />
+    <Content Include="App\Blocks\UserInfoCardFour\UserInfoCardFour.html" />
+    <Content Include="App\Blocks\UserInfoCardThree.html" />
+    <Content Include="App\Blocks\UserInfoCardTwo.html" />
+    <Content Include="App\Directive\DirectiveFourView.html" />
+    <Content Include="App\Directive\DirectiveView.html" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="index.html" />
+    <Content Include="readme.txt" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-ui-router.min.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\jasmine-html.js" />
+    <Content Include="Scripts\jasmine.js" />
+    <Content Include="Scripts\ref.js" />
+    <Content Include="Scripts\sinon-1.9.1.js" />
+    <Content Include="Scripts\ui-bootstrap.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\ref.js.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="App\App.ts" />
+    <TypeScriptCompile Include="App\Blocks\UserInfoCard.ts" />
+    <TypeScriptCompile Include="App\Blocks\UserInfoCardFour\UserInfoCardFour.ts" />
+    <TypeScriptCompile Include="App\Common\CommonServices.ts" />
+    <TypeScriptCompile Include="App\Directive\DirectiveController.ts" />
+    <TypeScriptCompile Include="App\Directive\User.ts" />
+    <TypeScriptCompile Include="Scripts\ref.ts" />
+    <TypeScriptCompile Include="typings\angular-ui-router\angular-ui-router.d.ts" />
+    <TypeScriptCompile Include="typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="typings\jasmine\jasmine.d.ts" />
+    <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

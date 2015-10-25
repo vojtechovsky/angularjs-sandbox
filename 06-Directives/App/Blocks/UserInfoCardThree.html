@@ -1,0 +1,20 @@
+﻿<div class="panel panel-primary">
+    <div class="panel-heading">{{user.firstName}} {{user.lastName}}</div>
+    <div class="panel-body">
+        <div ng-show="!!user.address">
+            <h4>Address</h4>
+            <div>{{user.address.street}}</div>
+            <div>{{user.address.city}}</div>
+            <div>{{user.address.zip}}</div>
+        </div>
+        <br />
+        <div ng-show="!!user.rank">
+            <h4>Rank:</h4>
+            <div>{{user.rank}}</div>
+        </div>
+        <br />
+        <button class="btn btn-success" ng-click="vm.knightMe(user)" ng-show="!user.rank">Knight me!</button>
+        <button class="btn btn-danger" ng-click="unKnightMe(user)" ng-show="!!user.rank">Unknight me!</button>
+
+    </div>
+</div>
