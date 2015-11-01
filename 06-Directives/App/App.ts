@@ -22,6 +22,20 @@
                     controller: "DirectiveController",
                     controllerAs: "controller",
                     templateUrl: "App/Directive/DirectiveFourView.html"
+                })
+                .state("directive5", <ng.ui.IState>
+                {
+                    url: "/directive5",
+                    controller: "DirectiveController",
+                    controllerAs: "controller",
+                    templateUrl: "App/Directive/DirectiveFiveView.html"
+                })
+                .state("keepFocused", <ng.ui.IState>
+                {
+                    url: "/keepFocused",
+                    controller: "DirectiveController",
+                    controllerAs: "controller",
+                    templateUrl: "App/Directive/KeepFocusedView.html"
                 });
         }
     };
@@ -34,5 +48,5 @@
     app.config(["$stateProvider", ($stateProvider) => { return new Configuration($stateProvider); }]);
 
     //default route to go on the app initialization
-    app.run(["$state", $state => { $state.transitionTo("directive4"); }]);
+    app.run(["$state", $state => { $state.transitionTo("keepFocused"); }]);
 }

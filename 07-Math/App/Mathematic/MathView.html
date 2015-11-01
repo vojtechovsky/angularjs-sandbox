@@ -10,32 +10,35 @@
     <div class="col-sm-2 highlight text-center">{{controller.task.numbers[1]}}</div>
     <div class="col-sm-1 highlight text-center">=</div>
     <div class="col-sm-2 text-center">
-        <form name="resultForm" ng-submit="controller.next()">
-            <input type="number" pattern="[0-9]*" class="highlight" required autofocus id="inputTyped" ng-model="controller.task.inputTyped" ng-focus="true" />
+        <form class="form-group has-feedback" ng-class="{ 'has-error': controller.task.inputResultType===3}" name="resultForm" ng-submit="controller.next()">
+            <input type="number" pattern="[0-9]*" class="highlight" required keep-focused autofocus id="inputTyped" ng-model="controller.task.inputTyped" />
+            <!--inputResultType===1 => Success-->
+            <span ng-show="controller.task.inputResultType===1" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <!--inputResultType===3 => Failure-->
+            <span ng-show="controller.task.inputResultType===3" class="glyphicon glyphicon-remove form-control-feedback"></span>
         </form>
     </div>
+
 </div>
 <div class="row">
     <div class="col-sm6 col-sm-offset-6">
         <button ng-show="controller.IsCompleted" ng-click="controller.generateTasks()">Refresh</button>
         <button ng-disabled="controller.IsCompleted" ng-click="controller.clear()">Clear</button>
+        <button ng-disabled="controller.IsCompleted" ng-click="controller.check()">Ok?</button>
         <button ng-disabled="controller.IsCompleted" ng-click="controller.next()">Next</button>
-        <!--<i class="fa fa-genderless"></i>
-        <i class="fa fa-smile-o"></i>
-        <i class="fa fa-frown-o"></i>
-        <i class="fa fa-meh-o"></i>-->
+        <input type="text" value="" />
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         {{controller.task.inputFeedback}}
+        <br />
+        {{controller.task.inputResultType}}
+        <br />
+        {{controller.task.inputResultType===3}}
     </div>
 </div>
-<!--<div class="row">
-    <ul class="col-md-6 col-md-offset-3 list-unstyled list-inline">
-        <li ng-repeat="task in controller.tasks">{{task.inputResultType}}</li>
-    </ul>
-</div>-->
+
 <div class="row">
     <span col-md-6 col-md-offset-3 ng-repeat="task in controller.tasks" ng-switch on="task.inputResultType">
         <span ng-switch-when="0"><i class="fa fa-3x fa-genderless "></i></span>
@@ -50,30 +53,57 @@
         <label>IsCompleted:{{controller.IsCompleted}}</label>
     </div>
 </div>
-<!-- Table
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Number</th>
-        <th>Operand</th>
-        <th>Number</th>
-        <th>Result</th>
-        <th>Duration</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="task in controller.tasks">
-        <td>{{task.numbers[0]}}</td>
-        <td>{{task.operandSymbol[task.operand]}}</td>
-        <td>{{task.numbers[1]}}</td>
-        <td>{{task.result}}</td>
-        <td>{{task.duration}}</td>
-        <td>{{task.date}}</td>
-        <td>
-            <button ng-click="controller.updatePerson(person)">edit</button> <button ng-click="controller.deletePerson(person)">delete</button>
-        </td>
-    </tr>
-    </tbody>
-</table>
--->
+<div class="container">
+    <h2>Horizontal form: control states</h2>
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Focused</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="focusedInput" type="text" value="Click to focus...">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">Disabled</label>
+            <div class="col-sm-10">
+                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+            </div>
+        </div>
+        <fieldset disabled>
+            <div class="form-group">
+                <label for="disabledTextInput" class="col-sm-2 control-label">Disabled input and select list (Fieldset disabled)</label>
+                <div class="col-sm-10">
+                    <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="disabledSelect" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <select id="disabledSelect" class="form-control">
+                        <option>Disabled select</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group has-success  has-feedback">
+            <label class="col-sm-2 control-label" for="inputSuccess">Input with success and glyphicon</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputSuccess">
+                <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+            </div>
+        </div>
+        <div class="form-group has-warning has-feedback">
+            <label class="col-sm-2 control-label" for="inputWarning">Input with warning and glyphicon</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputWarning">
+                <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+            </div>
+        </div>
+        <div class="form-group has-error has-feedback">
+            <label class="col-sm-2 control-label" for="inputError">Input with error and glyphicon</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputError">
+                <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            </div>
+        </div>
+    </form>
+</div>

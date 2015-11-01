@@ -8,24 +8,24 @@
         }
     }
 
-    class AllInOneConfiguration {
+    //class AllInOneConfiguration {
 
-        static $inject = ["$stateProvider"];
-        constructor(private stateProvider: angular.ui.IStateProvider) {
-            this.init();
-        }
+    //    static $inject = ["$stateProvider"];
+    //    constructor(private stateProvider: angular.ui.IStateProvider) {
+    //        this.init();
+    //    }
 
-        private init(): void {
-            this.stateProvider
-                .state("mathematic", <ng.ui.IState>
-                {
-                    url: "/mathematic",
-                    controller: "MathController",
-                    controllerAs: "controller",
-                    templateUrl: "App/Mathematic/MathView.html"
-                });
-        }
-    };
+    //    private init(): void {
+    //        this.stateProvider
+    //            .state("mathematic", <ng.ui.IState>
+    //            {
+    //                url: "/mathematic",
+    //                controller: "MathController",
+    //                controllerAs: "controller",
+    //                templateUrl: "App/Mathematic/MathView.html"
+    //            });
+    //    }
+    //};
 
     // 
     // this is the main application module
@@ -37,5 +37,5 @@
 
     //default route to go on the app initialization
    // app.run(["$state", $state => { $state.transitionTo("home"); }]);
-    app.run(["$state", $state => { $state.transitionTo("home"); }]);
+    app.run(["$state", $state => { $state.transitionTo("mathematic"); }]);
 }

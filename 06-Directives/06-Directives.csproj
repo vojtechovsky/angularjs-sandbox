@@ -22,15 +22,19 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Directive\KeepFocusedView.html" />
+    <Content Include="App\Blocks\UserInfoCardFive\UserInfoCardFive.html" />
     <Content Include="App\Blocks\UserInfoCardFour\UserInfoFourAddress.html" />
     <Content Include="App\Blocks\UserInfoCardFour\UserInfoCardFour.html" />
     <Content Include="App\Blocks\UserInfoCardThree.html" />
     <Content Include="App\Blocks\UserInfoCardTwo.html" />
+    <Content Include="App\Directive\DirectiveFiveView.html" />
     <Content Include="App\Directive\DirectiveFourView.html" />
     <Content Include="App\Directive\DirectiveView.html" />
     <Content Include="Content\css\app.css" />
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="readme.txt" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -45,6 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\ref.js.map" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -54,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="App\App.ts" />
+    <TypeScriptCompile Include="App\Blocks\KeepFocused\KeepFocusedDirective.ts" />
     <TypeScriptCompile Include="App\Blocks\UserInfoCard.ts" />
+    <TypeScriptCompile Include="App\Blocks\UserInfoCardFive\UserInfoCardFive.ts" />
     <TypeScriptCompile Include="App\Blocks\UserInfoCardFour\UserInfoCardFour.ts" />
     <TypeScriptCompile Include="App\Common\CommonServices.ts" />
     <TypeScriptCompile Include="App\Directive\DirectiveController.ts" />

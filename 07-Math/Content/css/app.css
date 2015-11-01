@@ -4,6 +4,13 @@
 
 input.highlight {
     background-color: yellow;
-    width: 100px;
+    width: 120px;
+    border: 1px solid #ccc;
+    /*-ms-border-radius: 4px;
+    border-radius: 4px;*/
+}
+
+.form-control {
+    height: 100%;
 }
 

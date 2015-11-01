@@ -1,0 +1,33 @@
+﻿<div class="well-large">
+    <!-- Default panel contents -->
+    <div class="panel-body">
+        <p>Directive to keep focus on input element</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-2 highlight text-center">4</div>
+    <div class="col-sm-1 highlight text-center">-</div>
+    <div class="col-sm-2 highlight text-center">2</div>
+    <div class="col-sm-1 highlight text-center">=</div>
+    <div class="col-sm-2 text-center">
+        <form name="resultForm" ng-submit="controller.next()">
+            <input type="number" pattern="[0-9]*" class="highlight" required autofocus keep-focused />
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm6 col-sm-offset-6">
+        <button >Refresh</button>
+        <button >Clear</button>
+        <button >Next</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm6 col-sm-offset-6">
+        <input type="number" pattern="[0-9]*" class="highlight" required/>
+        <input type="number" pattern="[0-9]*" class="highlight" required/>
+        <input type="number" pattern="[0-9]*" class="highlight" required/>
+        <input type="number" pattern="[0-9]*" class="highlight" required/>
+        <input type="number" pattern="[0-9]*" class="highlight" required/>
+    </div>
+</div>

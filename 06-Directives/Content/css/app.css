@@ -2,6 +2,14 @@
    font-size: 72px;
 }
 
+.blue {
+    color: blue;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
 input.highlight {
     background-color: yellow;
     width: 100px;
