@@ -4,20 +4,23 @@
     * it controlls the logic with simple one plus one operation
     */
     export class MathController {
-        public title = "alive";
-        private excercise: Excercise;
-
-        get task() {
-            return this.excercise.Task;
+        public Title = "alive";
+        public Excercise: Excercise;
+        
+        public get Task() {
+            return this.Excercise.Task;
         }
 
 
-        public get IsCompleted() {
-            return this.excercise.IsCompleted;
+        /**
+         * clear inputTyped field on the current task
+         */            
+        private clear(): void {
+            this.Task.inputTyped = null;
         }
 
         constructor() {
-            this.excercise = new Excercise(3);
+            this.Excercise = new Excercise(3);
         }
 
     }

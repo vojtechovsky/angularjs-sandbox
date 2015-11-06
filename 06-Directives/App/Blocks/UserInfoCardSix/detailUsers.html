@@ -1,0 +1,8 @@
+<div class="panel panel-primary" ng-repeat="user in users" ng-show="user === state.selectedUser">
+  <div class="panel-heading">{{user.firstName}} {{user.lastName}}</div>
+    <div class="panel-body">
+        <div ng-repeat="friend in user.friends">
+            {{friend.firstName}} {{friend.lastName}}
+        </div>
+    </div>
+</div>

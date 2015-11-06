@@ -3,7 +3,7 @@
     class Configuration {
 
         static $inject = ["$stateProvider"];
-        constructor(private stateProvider: angular.ui.IStateProvider) {
+        constructor(private stateProvider: ng.ui.IStateProvider) {
             this.init();
         }
 
@@ -14,28 +14,35 @@
                     url: "/directive1",
                     controller: "DirectiveController",
                     controllerAs: "controller",
-                    templateUrl: "App/Directive/DirectiveView.html"
+                    templateUrl: "App/DirectiveDemo/DirectiveView.html"
                 })
                 .state("directive4", <ng.ui.IState>
                 {
                     url: "/directive4",
                     controller: "DirectiveController",
                     controllerAs: "controller",
-                    templateUrl: "App/Directive/DirectiveFourView.html"
+                    templateUrl: "App/DirectiveDemo/DirectiveFourView.html"
                 })
                 .state("directive5", <ng.ui.IState>
                 {
                     url: "/directive5",
                     controller: "DirectiveController",
                     controllerAs: "controller",
-                    templateUrl: "App/Directive/DirectiveFiveView.html"
+                    templateUrl: "App/DirectiveDemo/DirectiveFiveView.html"
                 })
                 .state("keepFocused", <ng.ui.IState>
                 {
                     url: "/keepFocused",
                     controller: "DirectiveController",
                     controllerAs: "controller",
-                    templateUrl: "App/Directive/KeepFocusedView.html"
+                    templateUrl: "App/DirectiveDemo/KeepFocusedView.html"
+                })
+                .state("directive6", <ng.ui.IState>
+                {
+                    url: "/directive6",
+                    controller: "DirectiveController",
+                    controllerAs: "controller",
+                    templateUrl: "App/DirectiveDemo/DirectiveSixView.html"
                 });
         }
     };
@@ -48,5 +55,5 @@
     app.config(["$stateProvider", ($stateProvider) => { return new Configuration($stateProvider); }]);
 
     //default route to go on the app initialization
-    app.run(["$state", $state => { $state.transitionTo("keepFocused"); }]);
+    app.run(["$state", $state => { $state.transitionTo("directive6"); }]);
 }

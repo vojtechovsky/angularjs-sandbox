@@ -15,6 +15,11 @@
             return this.task;
         }
 
+        get Tasks() {
+            return this.tasks;
+        }
+
+
         private taskActiveIndex = 0;
         get TaskActiveIndex() {
             return this.taskActiveIndex;
@@ -50,7 +55,7 @@
         /**
          * resolve given task.
          * @param task 
-         * @returns {boolean} => return true if the exrcise if finished
+         * @returns {boolean} => return true if the exercise if finished
          */
         resolve(task: Task): void {
             task.inputFeedback = "";
@@ -88,14 +93,6 @@
             this.task = this.tasks[++this.taskActiveIndex];
 
             return this.taskActiveIndex;
-        }
-
-        /**
-          * clear inputTyped field
-          * @returns {} 
-          */
-        private clear(): void {
-            this.task.inputTyped = null;
         }
 
         /*
