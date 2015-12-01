@@ -10,8 +10,9 @@
     <div class="col-sm-2 highlight text-center">{{controller.Task.numbers[1]}}</div>
     <div class="col-sm-1 highlight text-center">=</div>
     <div class="col-sm-2 text-center">
-        <form class="form-group has-feedback" ng-class="{ 'has-success': controller.Task.inputResultType===1, 'has-error': controller.Task.inputResultType===3}" name="resultForm" ng-submit="controller.Excercise.next()">
-            <input type="number" pattern="[0-9]*" class="highlight" required keep-focused autofocus id="inputTyped" ng-model="controller.Task.inputTyped" />
+        <form class="form-group has-feedback" ng-class="{ 'has-success': controller.Task.inputResultType===1, 'has-error': controller.Task.inputResultType===3}" name="resultForm" ng-submit="controller.next(controller.Task)">
+            <input type="number" pattern="[0-9]*" class="highlight" required keep-focused autofocus id="inputTyped" ng-model="controller.Task.inputTyped"/>
+            <!--ng-disabled="controller.Task.inputResolved"--> 
             <!--inputResultType===1 => Success-->
             <span ng-show="controller.Task.inputResultType===1" class="glyphicon glyphicon-ok form-control-feedback"></span>
             <!--inputResultType===3 => Failure-->
@@ -23,22 +24,12 @@
 <div class="row">
     <div class="col-sm6 col-sm-offset-6">
         <button ng-show="controller.Excercise.IsCompleted" ng-click="controller.Excercise.generateTasks()">Refresh</button>
-        <button ng-disabled="controller.Excercise.IsCompleted" ng-click="controller.clear()">Clear</button>
-        <button ng-disabled="controller.Excercise.IsCompleted" ng-click="controller.Excercise.resolve(controller.Task)">Ok?</button>
-        <button ng-disabled="controller.Excercise.IsCompleted" ng-click="controller.Excercise.next()">Next</button>
+        <button ng-hide="controller.Excercise.IsCompleted" ng-click="controller.clear()">Clear</button>
+        <button ng-hide="controller.Task.inputResolved" ng-click="controller.Excercise.check(controller.Task)">Ok?</button>
+        <button ng-hide="controller.Excercise.IsCompleted" ng-click="controller.Excercise.next()">Next</button>
         <input type="text" value="" />
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12">
-        {{controller.Task.inputFeedback}}
-        <br />
-        {{controller.Task.inputResultType}}
-        <br />
-        {{controller.Task.inputResultType===3}}
-    </div>
-</div>
-
 <div class="row">
     <span col-md-6 col-md-offset-3 ng-repeat="task in controller.Excercise.tasks" ng-switch on="task.inputResultType">
         <span ng-switch-when="0"><i class="fa fa-3x fa-genderless "></i></span>
@@ -48,8 +39,15 @@
     </span>
 </div>
 
-<div class="row">
-    <div>
-        <label>IsCompleted:{{controller.Excercise.IsCompleted}}</label>
+<div class="table" ng-repeat="task in controller.Excercise.tasks">
+    <div class="row" ng-show="task.inputResolved">
+        <div class="col-sm-2 text-center">{{task.numbers[0]}}</div>
+        <div class="col-sm-1 text-center">{{task.operandSymbol[controller.Task.operand]}}</div>
+        <div class="col-sm-2 text-center">{{task.numbers[1]}}</div>
+        <div class="col-sm-1 text-center">=</div>
+        <div class="col-sm-2 text-center">{{task.inputTyped}}</div>
+        <div class="col-sm-1 text-center">{{task.duration}} </div>
+        <div class="col-sm-3 text-center">{{task.inputResolved}}</div>
     </div>
+
 </div>

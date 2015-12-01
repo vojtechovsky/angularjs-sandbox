@@ -19,7 +19,9 @@
         numberOfTrial: number;
         level: number;
         subLevel : number;
-        duration: Date;
+        duration: number;
+        startDate: Date;
+        endDate: Date;
         date: Date;
     }
 }

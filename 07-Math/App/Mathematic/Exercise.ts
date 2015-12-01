@@ -1,8 +1,12 @@
 ﻿module App.Mathematic {
 
+    /**
+     * based class for exercise
+     * 
+     */
     export class Excercise {
 
-        constructor(private taskCount) {
+        constructor(private operandsCount:number, private actualOperandTypeArray:OperandType[], private taskCount:number) {
             this.isCompleted = false;
             this.tasks = [];
             this.generateTasks();
@@ -11,8 +15,13 @@
         private tasks: Task[];
         private task: Task;
 
-        get Task() {
+        public get Task() {
             return this.task;
+        }
+
+        private setActiveTask(value: Task) {
+            this.task = value;
+            this.task.startDate = new Date();
         }
 
         get Tasks() {
@@ -48,16 +57,16 @@
             for (let i = 0; i < this.taskCount; i++) {
                 this.tasks.push(this.createNewRandomTask());
             }
-
-            this.task = this.tasks[this.taskActiveIndex];
+            
+            this.setActiveTask(this.tasks[this.taskActiveIndex]);
         }
 
         /**
-         * resolve given task.
+         * check given task.
          * @param task 
          * @returns {boolean} => return true if the exercise if finished
          */
-        resolve(task: Task): void {
+        check(task: Task): void {
             task.inputFeedback = "";
 
             if (task.inputTyped === task.result) {
@@ -71,27 +80,33 @@
                 task.inputResolved = (task.numberOfTrial > 1);
             }
 
-            if (this.taskActiveIndex === this.taskCount - 1) {
-
+            if ((task.inputResolved) && (this.isLastTask()))
+            {
+                this.isCompleted = true;
             }
         }
 
         /**
+         * it moves to the next task in the row
+         * or stays at the last
          * 
          * @returns {number} index of the active task 
          */
         public next(): number {
 
-            this.resolve(this.task);
+            this.check(this.task);
 
-            if (this.taskActiveIndex === this.taskCount - 1) {
+            //check the time
+            this.task.endDate = new Date();
+            this.setDuration(this.task);
 
-                this.isCompleted = this.task.inputResolved;
-                return this.taskActiveIndex;
-            }
+            this.isCompleted = this.isLastTask();
+            this.task.inputResolved = true;
 
-            this.task = this.tasks[++this.taskActiveIndex];
-
+            if (!this.isCompleted) {
+                this.setActiveTask(this.tasks[++this.taskActiveIndex]);
+            };
+            
             return this.taskActiveIndex;
         }
 
@@ -109,21 +124,18 @@
         public createNewRandomTask(): Task {
             const num1 = this.getRandomInt(0, 10);
             const num2 = this.getRandomInt(0, 10);
-            const res: Task = {
-                operand: this.getRandomInt(0, 1),
-                operandSymbol: ["+", "-", ".", "/"],
-                numbers: [num1, num2],
-                result: 0,
-                inputResultType: ResultType.None,
-                inputTyped: null,
-                inputFeedback: "",
-                inputResolved: false,
-                numberOfTrial: 0,
-                level: 1,
-                subLevel: 1,
-                duration: new Date(0),
-                date: new Date()
-            };
+            let res  = new Task();
+                res.operand = this.getRandomInt(0, 1);
+                res.operandSymbol = ["+", "-", ".", "/"];
+                res.numbers = [num1, num2];
+                res.inputResultType= ResultType.None;
+                res.inputTyped= null;
+                res.inputResolved= false;
+                res.numberOfTrial= 0;
+                //startDate= new Date(0);
+                //endDate= new Date(0);
+                //duration= new Date(0);
+                //date= new Date()
 
             //check minus operator and swap if the result is negative
             if ((res.operand === 1) && (num2 > num1)) {
@@ -151,6 +163,18 @@
                 default:
                     return numbers[0] % numbers[1];
             }
+        }
+
+        private setDuration(task: Task) {
+            task.duration = Math.min(60, Math.floor((task.endDate.valueOf() - task.startDate.valueOf()) / 1000));
+            }
+
+        /**
+         * 
+         * @returns {} 
+         */
+        isLastTask(): boolean {
+            return (this.taskActiveIndex === this.taskCount - 1);
         }
     }
 }

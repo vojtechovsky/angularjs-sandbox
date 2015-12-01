@@ -19,8 +19,22 @@
             this.Task.inputTyped = null;
         }
 
+        /**
+         * allow to controll the task flow.
+         * first try to check the task if we keep wrong result disable the control and call next
+         * @param task 
+         * @returns {} 
+         */
+        private next(task: Task) {
+            if (task.inputResolved) {
+                this.Excercise.next();
+            } else {
+                this.Excercise.check(task);
+            }
+        }
+
         constructor() {
-            this.Excercise = new Excercise(3);
+            this.Excercise = new Excercise(2,[OperandType.Plus], 12);
         }
 
     }
