@@ -8,11 +8,12 @@
 /// <reference path="../../../app/mathematic/operandtype.ts" />
 /// <reference path="../../../app/mathematic/task.ts" />
 /// <reference path="../../../app/mathematic/mathcontroller.ts" />
+/// <reference path="../../../app/mathematic/excercisebuilder.ts" />
 /// <reference path="../../../app/mathematic/exercise.ts" />
 /// <chutzpah_reference path="../../../scripts/lodash.min.js" />
 
 module App.Mathematic {
-
+    
     describe("Exercise", () => {
         let $controller: angular.IControllerService;
         let $rootScope: angular.IRootScopeService;
@@ -50,16 +51,29 @@ module App.Mathematic {
             expect(exercise.task.numbers.length).toEqual(10);
         });
 
+        it("constructor_x", () => {
+            // arrange,act
+
+            var exercise = ExerciseBuilder.operatorType(App.Mathematic.OperatorType.Plus, App.Mathematic.OperatorType.Minus)
+                .operandRange(0,10)
+                .resultRange(0,10)
+                .taskCount(10)
+                .create();
+
+            //assert
+            expect(exercise.task.numbers.length).toEqual(10);
+        });
+
         it("constructor_generateTasks_returnsObject", () => {
 
-            let exercise = new Excercise([OperandType.Minus, OperandType.Plus, OperandType.Multiplication], 2, 4);
+            let exercise = new Excercise([App.Mathematic.OperatorType.Minus, App.Mathematic.OperatorType.Plus, App.Mathematic.OperatorType.Multiplication], 2, 4);
             expect(exercise).toBeDefined();
             expect(exercise.tasks.length).toEqual(4);
             
             expect(exercise.taskActiveIndex).toEqual(0);
             expect(exercise.task).toBeDefined();
 
-            let operandsAll = _.all(exercise.tasks, (task) => { return (task.operand === OperandType.Minus) || (task.operand === OperandType.Plus) });
+            let operandsAll = _.all(exercise.tasks, (task) => { return (task.operatorType[0] === App.Mathematic.OperatorType.Minus) || (task.operatorType[0] === App.Mathematic.OperatorType.Plus) });
 
             expect(operandsAll).toEqual(true);
 
@@ -85,8 +99,8 @@ module App.Mathematic {
             expect(task.inputResultType).toEqual(ResultType.None);
             expect(task.numbers).toBeDefined();
             expect(task.numbers.length).toEqual(2);
-            expect(task.operandSymbol).toBeDefined();
-            expect(task.operandSymbol.length).toEqual(4);
+            expect(task.operatorSymbol).toBeDefined();
+            expect(task.operatorSymbol.length).toEqual(4);
         });
 
         it("check_inputTypedIsCorrect_Success", () => {

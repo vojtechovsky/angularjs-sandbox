@@ -7,8 +7,8 @@
     export class Excercise {
 
         constructor(
-            private _actualOperandTypeArray: OperandType[] = [],
-            private _numberCount: number = 2,
+            private _operatorTypeArray: App.Mathematic.OperatorType[] = [],
+            private _operandCount: number = 2,
             private _taskCount: number = 5) {
             this.isCompleted = false;
             this._tasks = [];
@@ -130,7 +130,7 @@
             const num1 = this.getRandomInt(0, 10);
             const num2 = this.getRandomInt(0, 10);
             let res = new Task();
-                res.operandSymbol = ["+", "-", ".", "/"];
+                res.operatorSymbols = ["+", "-", ".", "/"];
                 res.inputResultType= ResultType.None;
                 res.inputTyped= null;
                 res.inputResolved= false;
@@ -140,35 +140,35 @@
                 //duration= new Date(0);
                 //date= new Date()
 
-                //res.numbers = [num1, num2];
-                for (let i = 0; i < this._numberCount; i++) {
-                    res.numbers.push(this.getRandomInt(0, 10));
+                //res.operands = [num1, num2];
+                for (let i = 0; i < this._operandCount; i++) {
+                    res.operands.push(this.getRandomInt(0, 10));
                 }
 
-            res.operands = this.getRandomInt(0, 1);
+            res.operatorTypes = this.getRandomInt(0, 1);
 
             //check minus operator and swap if the result is negative
-            if ((res.operand === 1) && (num2 > num1)) {
-                res.numbers = [num2, num1];
+            if ((res.operatorTypes[0] === 1) && (num2 > num1)) {
+                res.operands = [num2, num1];
             }
 
-            res.result = this.getResult(res.operand, res.numbers);
+            res.result = this.getResult(res.operatorTypes[0], res.operands);
             return res;
         }
 
         /**
          * calculate given mathematic operation
          * @param operandType 
-         * @param numbers 
+         * @param operands 
          * @returns {} 
          */
-        public getResult(operandType: OperandType, numbers: number[]): number {
+        public getResult(operandType: App.Mathematic.OperatorType, numbers: number[]): number {
             switch (operandType) {
-                case OperandType.Minus:
+                case App.Mathematic.OperatorType.Minus:
                     return numbers[0] - numbers[1];
-                case OperandType.Plus:
+                case App.Mathematic.OperatorType.Plus:
                     return numbers[0] + numbers[1];
-                case OperandType.Multiplication:
+                case App.Mathematic.OperatorType.Multiplication:
                     return numbers[0] * numbers[1];
                 default:
                     return numbers[0] % numbers[1];

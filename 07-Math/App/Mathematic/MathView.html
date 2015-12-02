@@ -5,9 +5,9 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-2 col-sm-offset-2 highlight text-center">{{controller.Task.numbers[0]}}</div>
-    <div class="col-sm-1 highlight text-center">{{controller.Task.operandSymbol[controller.Task.operand]}}</div>
-    <div class="col-sm-2 highlight text-center">{{controller.Task.numbers[1]}}</div>
+    <div class="col-sm-2 col-sm-offset-2 highlight text-center">{{controller.Task.operands[0]}}</div>
+    <div class="col-sm-1 highlight text-center">{{controller.Task.operatorSymbols[controller.Task.operand]}}</div>
+    <div class="col-sm-2 highlight text-center">{{controller.Task.operands[1]}}</div>
     <div class="col-sm-1 highlight text-center">=</div>
     <div class="col-sm-2 text-center">
         <form class="form-group has-feedback" ng-class="{ 'has-success': controller.Task.inputResultType===1, 'has-error': controller.Task.inputResultType===3}" name="resultForm" ng-submit="controller.next(controller.Task)">
@@ -41,9 +41,9 @@
 
 <div class="table" ng-repeat="task in controller.Excercise.tasks">
     <div class="row" ng-show="task.inputResolved">
-        <div class="col-sm-2 text-center">{{task.numbers[0]}}</div>
-        <div class="col-sm-1 text-center">{{task.operandSymbol[controller.Task.operand]}}</div>
-        <div class="col-sm-2 text-center">{{task.numbers[1]}}</div>
+        <div class="col-sm-2 text-center">{{task.operands[0]}}</div>
+        <div class="col-sm-1 text-center">{{task.operatorSymbols[controller.Task.operand]}}</div>
+        <div class="col-sm-2 text-center">{{task.operands[1]}}</div>
         <div class="col-sm-1 text-center">=</div>
         <div class="col-sm-2 text-center">{{task.inputTyped}}</div>
         <div class="col-sm-1 text-center">{{task.duration}} </div>

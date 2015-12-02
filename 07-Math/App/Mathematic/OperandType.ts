@@ -1,5 +1,5 @@
 ﻿module App.Mathematic {
-    export enum OperandType {
+    export enum OperatorType {
         Plus = 0,
         Minus = 1,
         Multiplication = 2,
