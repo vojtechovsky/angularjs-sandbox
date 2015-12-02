@@ -13,15 +13,11 @@
 
 module App.Mathematic {
 
-    describe("app/mathematic/exercise", () => {
+    describe("Exercise", () => {
         let $controller: angular.IControllerService;
         let $rootScope: angular.IRootScopeService;
         let app: angular.IModule;
-        let exercise: Excercise;
-
-        beforeEach(() => {
-            exercise = new Excercise(2, [OperandType.Minus, OperandType.Plus], 3);
-        });
+        
         //beforeEach(angular.mock.module("AppMath"));
 
         //beforeEach(() => {
@@ -33,16 +29,37 @@ module App.Mathematic {
         //    expect(mathController.title).toEqual("alive");
         //});
 
-        it("Excercise_generateTasks_returnsObject", () => {
+        it("constructor_default_createsObject", () => {
+            //assert
+            expect(new Excercise()).toBeDefined();
+        });
 
-            exercise = new Excercise(2, [OperandType.Minus, OperandType.Plus, , OperandType.Multiplication], 4);
+        it("constructor_parameterTaskCount_excerciseHasTenTasks", () => {
+            // arrange,act
+            let exercise = new Excercise([], 2, 10);
+
+            //assert
+            expect(exercise.tasks.length).toEqual(10);
+        });
+
+        it("constructor_parameterNumberCount_excerciseHasTenNumbers", () => {
+            // arrange,act
+            let exercise = new Excercise([], 10, 2);
+
+            //assert
+            expect(exercise.task.numbers.length).toEqual(10);
+        });
+
+        it("constructor_generateTasks_returnsObject", () => {
+
+            let exercise = new Excercise([OperandType.Minus, OperandType.Plus, OperandType.Multiplication], 2, 4);
             expect(exercise).toBeDefined();
-            expect(exercise.TaskCount).toEqual(4);
+            expect(exercise.tasks.length).toEqual(4);
             
-            expect(exercise.TaskActiveIndex).toEqual(0);
-            expect(exercise.Task).toBeDefined();
+            expect(exercise.taskActiveIndex).toEqual(0);
+            expect(exercise.task).toBeDefined();
 
-            let operandsAll = _.all(exercise.Tasks, (task) => { return (task.operand === OperandType.Minus) || (task.operand === OperandType.Plus) });
+            let operandsAll = _.all(exercise.tasks, (task) => { return (task.operand === OperandType.Minus) || (task.operand === OperandType.Plus) });
 
             expect(operandsAll).toEqual(true);
 
@@ -57,6 +74,7 @@ module App.Mathematic {
         });
 
         it("createNewRandomTask_call_returnsTask", () => {
+            let exercise = new Excercise(); 
             const task = exercise.createNewRandomTask();
             //write to console
             console.log(JSON.stringify(task, null, 4));
@@ -73,6 +91,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrect_Success", () => {
             //arrange
+            let exercise = new Excercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result;
 
@@ -89,6 +108,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsInCorrect_Failure", () => {
             //arrange
+            let exercise = new Excercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result+1;
 
@@ -105,6 +125,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrect_Fixed", () => {
             //arrange
+            let exercise = new Excercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result;
             task.numberOfTrial = 1;
@@ -121,6 +142,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrect_Fixed", () => {
             //arrange
+            let exercise = new Excercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result;
             task.numberOfTrial = 1;
@@ -137,9 +159,10 @@ module App.Mathematic {
 
         it("next_inputTypedIsCorrect_moveToNext", () => {
             //arrange
-            let task = exercise.Task;
+            let exercise = new Excercise();
+            let task = exercise.task;
             task.inputTyped = task.result;
-            let currentTaskActiveId = exercise.TaskActiveIndex;
+            let currentTaskActiveId = exercise.taskActiveIndex;
 
             //act
             let nextTaskActiveId = exercise.next();
@@ -150,9 +173,10 @@ module App.Mathematic {
 
         it("next_inputTypedIsNOTCorrect_moveToNext", () => {
             //arrange
-            let task = exercise.Task;
+            let exercise = new Excercise();
+            let task = exercise.task;
             task.inputTyped = task.result+1;
-            let currentTaskActiveId = exercise.TaskActiveIndex;
+            let currentTaskActiveId = exercise.taskActiveIndex;
 
             //act
             let nextTaskActiveId = exercise.next();
@@ -164,100 +188,105 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrectAndAtTheEndOfTasks_returnsSameTaskId", () => {
             //arrange
+            let exercise = new Excercise();
             do {
-                exercise.Task.inputTyped = exercise.Task.result;
+                exercise.task.inputTyped = exercise.task.result;
                 exercise.next();   
-            } while (exercise.TaskActiveIndex + 1 < exercise.TaskCount)
+            } while (exercise.taskActiveIndex + 1 < exercise.tasks.length)
 
             //act
             //we are at the end now we can call the next how many time we want
             //it will not move
             for (var i = 1; i < 5; i++) {
-               exercise.Task.inputTyped = exercise.Task.result;
-               exercise.check(exercise.Task); 
+               exercise.task.inputTyped = exercise.task.result;
+               exercise.check(exercise.task); 
             } 
            
             //assert
-            expect(exercise.TaskActiveIndex).toEqual(exercise.TaskCount-1);
-            expect(exercise.Task.inputResultType).toEqual(ResultType.Success);
-            expect(exercise.Task.inputResolved).toEqual(true,"correct at the end must be resolved");
-            expect(exercise.IsCompleted).toEqual(true,"");
+            expect(exercise.taskActiveIndex).toEqual(exercise.tasks.length-1);
+            expect(exercise.task.inputResultType).toEqual(ResultType.Success);
+            expect(exercise.task.inputResolved).toEqual(true,"correct at the end must be resolved");
+            expect(exercise.isCompleted).toEqual(true,"");
         });
 
         it("check_inputTypedIsNOTCorrectAndAtTheEndOfTasks_inputResolvedIsTrue", () => {
             //arrange
+            let exercise = new Excercise();
             do {
-                exercise.Task.inputTyped = exercise.Task.result;
+                exercise.task.inputTyped = exercise.task.result;
                 exercise.next();
-            } while (exercise.TaskActiveIndex + 1 < exercise.TaskCount)
+            } while (exercise.taskActiveIndex + 1 < exercise.tasks.length)
 
             //act
             //we are at the end now 
-            exercise.Task.inputTyped = exercise.Task.result + 1000;
-            exercise.check(exercise.Task);
+            exercise.task.inputTyped = exercise.task.result + 1000;
+            exercise.check(exercise.task);
            
             //assert
-            expect(exercise.TaskActiveIndex).toEqual(exercise.TaskCount - 1,"TaskActiveIndex");
-            expect(exercise.Task.inputResultType).toEqual(ResultType.Failure,"inputResultType must be failure");
-            expect(exercise.Task.inputResolved).toEqual(false, "inputResolved");
-            expect(exercise.IsCompleted).toEqual(false, "IsCompleted");
+            expect(exercise.taskActiveIndex).toEqual(exercise.tasks.length - 1,"TaskActiveIndex");
+            expect(exercise.task.inputResultType).toEqual(ResultType.Failure,"inputResultType must be failure");
+            expect(exercise.task.inputResolved).toEqual(false, "inputResolved");
+            expect(exercise.isCompleted).toEqual(false, "IsCompleted");
         });
 
         it("check_inputTypedIsCorrectAfterFailure_inputResolvedIsTrue", () => {
             //arrange
+            let exercise = new Excercise();
             do {
-                exercise.Task.inputTyped = exercise.Task.result;
+                exercise.task.inputTyped = exercise.task.result;
                 exercise.next();
-            } while (exercise.TaskActiveIndex + 1 < exercise.TaskCount)
+            } while (exercise.taskActiveIndex + 1 < exercise.tasks.length)
 
             //act
             //we are at the end now
             //first incorrect 
-            exercise.Task.inputTyped = exercise.Task.result + 1000;
-            exercise.check(exercise.Task);
-            expect(exercise.Task.inputResultType).toEqual(ResultType.Failure);
-            expect(exercise.Task.inputResolved).toEqual(false);
+            exercise.task.inputTyped = exercise.task.result + 1000;
+            exercise.check(exercise.task);
+            expect(exercise.task.inputResultType).toEqual(ResultType.Failure);
+            expect(exercise.task.inputResolved).toEqual(false);
 
             //second correct
-            exercise.Task.inputTyped = exercise.Task.result;
-            exercise.check(exercise.Task);          
+            exercise.task.inputTyped = exercise.task.result;
+            exercise.check(exercise.task);          
 
             //assert
-            expect(exercise.Task.inputResultType).toEqual(ResultType.Fixed);
-            expect(exercise.Task.inputResolved).toEqual(true);
-            expect(exercise.IsCompleted).toEqual(true);
+            expect(exercise.task.inputResultType).toEqual(ResultType.Fixed);
+            expect(exercise.task.inputResolved).toEqual(true);
+            expect(exercise.isCompleted).toEqual(true);
         });
 
         it("check_inputTypedIsNOTCorrectAfterFailure_inputResolvedIsTrue", () => {
             //arrange
+            let exercise = new Excercise();
             do {
-                exercise.Task.inputTyped = exercise.Task.result;
+                exercise.task.inputTyped = exercise.task.result;
                 exercise.next();
-            } while (exercise.TaskActiveIndex + 1 < exercise.TaskCount)
+            } while (exercise.taskActiveIndex + 1 < exercise.tasks.length)
 
             //act
             //we are at the end now
             //first incorrect 
-            exercise.Task.inputTyped = exercise.Task.result + 1000;
-            exercise.check(exercise.Task);
-            expect(exercise.Task.inputResultType).toEqual(ResultType.Failure);
-            expect(exercise.Task.inputResolved).toEqual(false);
+            exercise.task.inputTyped = exercise.task.result + 1000;
+            exercise.check(exercise.task);
+            expect(exercise.task.inputResultType).toEqual(ResultType.Failure);
+            expect(exercise.task.inputResolved).toEqual(false);
 
             //second again incorrect
-            exercise.Task.inputTyped = exercise.Task.result + 2000;
+            exercise.task.inputTyped = exercise.task.result + 2000;
             exercise.next();          
 
             //assert
-            expect(exercise.Task.inputResultType).toEqual(ResultType.Failure);
-            expect(exercise.Task.inputResolved).toEqual(true);
+            expect(exercise.task.inputResultType).toEqual(ResultType.Failure);
+            expect(exercise.task.inputResolved).toEqual(true);
 
         });
 
         it("next_inputTypedIsInCorrect_movesTonextTaskId", () => {
             //arrange
-            let task = exercise.Task;
+            let exercise = new Excercise();
+            let task = exercise.task;
             task.inputTyped = task.result+1;
-            let currentTaskActiveId = exercise.TaskActiveIndex;
+            let currentTaskActiveId = exercise.taskActiveIndex;
             
             //act
             let nextTaskActiveId = exercise.next();

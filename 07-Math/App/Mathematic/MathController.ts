@@ -8,7 +8,7 @@
         public Excercise: Excercise;
         
         public get Task() {
-            return this.Excercise.Task;
+            return this.Excercise.task;
         }
 
 
@@ -34,7 +34,7 @@
         }
 
         constructor() {
-            this.Excercise = new Excercise(2,[OperandType.Plus], 12);
+            this.Excercise = new Excercise();
         }
 
     }

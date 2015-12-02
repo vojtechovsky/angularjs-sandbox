@@ -8,7 +8,7 @@
     }
 
     export class Task {
-        operand: OperandType;
+        operands: OperandType[];
         operandSymbol: string[];
         numbers: number[];
         result: number;
