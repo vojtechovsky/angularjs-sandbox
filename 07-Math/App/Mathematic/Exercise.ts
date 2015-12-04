@@ -7,15 +7,21 @@
     export class Excercise {
 
         constructor(
-            private _operatorTypeArray: App.Mathematic.OperatorType[] = [],
-            private _operandCount: number = 2,
-            private _taskCount: number = 5) {
+            private _operatorTypes: App.Mathematic.OperatorType[] = [OperatorType.Plus, OperatorType.Minus],
+            private _operandMin: number = 0,
+            private _operandMax: number = 10,
+            private _operandsCountMin: number = 2,
+            private _operandsCountMax: number = 2,
+            private _taskCount: number = 5,
+            private _resultMin: number = 0,
+            private _resultMax: number = 10) {
             this.isCompleted = false;
-            this._tasks = [];
+            this.tasks = [];
             this.generateTasks();
         }
 
-        private _tasks: Task[];
+
+        public tasks: Task[];
         private _task: Task;
 
         public get task():Task {
@@ -32,11 +38,6 @@
             this._task.startDate = new Date();
         }
 
-        public get tasks() {
-            return this._tasks;
-        }
-
-
         private _taskActiveIndex = 0;
         public get taskActiveIndex() {
             return this._taskActiveIndex;
@@ -48,21 +49,58 @@
         public isCompleted: boolean;
 
         /**
-         * generate new _tasks for the repetition
+         * generate new tasks for the repetition
          * @returns {} 
          */
         private generateTasks() {
             //clear the array;
-            this._tasks.length = 0;
+            this.tasks.length = 0;
+
             //reset active record;
             this._taskActiveIndex = 0;
             this.isCompleted = false;
 
             for (let i = 0; i < this._taskCount; i++) {
-                this._tasks.push(this.createNewRandomTask());
+                this.tasks.push(this.createNewRandomTask());
             }
             
-            this.setTask(this._tasks[this._taskActiveIndex]);
+            this.setTask(this.tasks[this._taskActiveIndex]);
+        }
+
+        /**
+         * public only for tests
+         * create a new task and return it
+         * @returns {} 
+         */
+        public createNewRandomTask(): Task {
+            let res = new Task();
+            res.operands = [];
+            res.operatorSymbols = ["+", "-", ".", "/"];
+            res.operatorTypes = [];
+            res.inputResultType = ResultType.None;
+            res.inputTyped = null;
+            res.inputResolved = false;
+            res.numberOfTrial = 0;
+            //startDate= new Date(0);
+            //endDate= new Date(0);
+            //duration= new Date(0);
+            //date= new Date()
+
+            let operandsCount = _.random(this._operandsCountMin, this._operandsCountMax);
+            for (let i = 0; i < operandsCount; i++) {
+                res.operands.push(_.random(this._operandMin, this._operandMax));
+                res.operatorTypes.push(this._operatorTypes[_.random(this._operatorTypes.length - 1)]);
+            }
+          
+            //check minus operator and swap if the result is negative
+            if ((res.operatorTypes[0] === 1) && (res.operands[1] > res.operands[0])) {
+                let num1 = res.operands[0];
+                res.operands[0] = res.operands[1];
+                res.operands[1] = num1;
+            }
+
+            res.result = this.getResult(res.operatorTypes[0], res.operands);
+            return res;
         }
 
         /**
@@ -108,7 +146,7 @@
             this._task.inputResolved = true;
 
             if (!this.isCompleted) {
-                this.setTask(this._tasks[++this._taskActiveIndex]);
+                this.setTask(this.tasks[++this._taskActiveIndex]);
             };
             
             return this._taskActiveIndex;
@@ -118,43 +156,9 @@
          * Returns a random integer between min (inclusive) and max (inclusive)
          * Using Math.round() will give you a non-uniform distribution!
          */
-        private getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        /**
-         * public only for tests
-         * create a new task and return it
-         * @returns {} 
-         */
-        public createNewRandomTask(): Task {
-            const num1 = this.getRandomInt(0, 10);
-            const num2 = this.getRandomInt(0, 10);
-            let res = new Task();
-                res.operatorSymbols = ["+", "-", ".", "/"];
-                res.inputResultType= ResultType.None;
-                res.inputTyped= null;
-                res.inputResolved= false;
-                res.numberOfTrial= 0;
-                //startDate= new Date(0);
-                //endDate= new Date(0);
-                //duration= new Date(0);
-                //date= new Date()
-
-                //res.operands = [num1, num2];
-                for (let i = 0; i < this._operandCount; i++) {
-                    res.operands.push(this.getRandomInt(0, 10));
-                }
-
-            res.operatorTypes = this.getRandomInt(0, 1);
-
-            //check minus operator and swap if the result is negative
-            if ((res.operatorTypes[0] === 1) && (num2 > num1)) {
-                res.operands = [num2, num1];
-            }
-
-            res.result = this.getResult(res.operatorTypes[0], res.operands);
-            return res;
-        }
+        //private getRandomInt(min, max) {
+        //    return Math.floor(Math.random() * (max - min + 1)) + min;
+        //}
 
         /**
          * calculate given mathematic operation

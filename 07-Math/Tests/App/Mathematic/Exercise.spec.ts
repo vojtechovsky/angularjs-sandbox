@@ -35,23 +35,21 @@ module App.Mathematic {
             expect(new Excercise()).toBeDefined();
         });
 
-        it("constructor_parameterTaskCount_excerciseHasTenTasks", () => {
+        it("constructor_operandCountRange_excerciseHasFiveOrSixOperandCount", () => {
             // arrange,act
-            let exercise = new Excercise([], 2, 10);
+            var exercise = ExerciseBuilder.operatorType(App.Mathematic.OperatorType.Plus, App.Mathematic.OperatorType.Minus)
+                .operandRange(0, 10)
+                .operandCountRange(5,6)
+                .resultRange(0, 10)
+                .taskCount(10)
+                .create();
 
             //assert
-            expect(exercise.tasks.length).toEqual(10);
+            expect(_.inRange(exercise.task.operands.length, 5, 7)).toEqual(true, "Number of opreands should be 5 or 6, but was:" + exercise.task.operands.length);
+            
         });
 
-        it("constructor_parameterNumberCount_excerciseHasTenNumbers", () => {
-            // arrange,act
-            let exercise = new Excercise([], 10, 2);
-
-            //assert
-            expect(exercise.task.numbers.length).toEqual(10);
-        });
-
-        it("constructor_x", () => {
+        it("constructor_taskCount_returns10Tasks", () => {
             // arrange,act
 
             var exercise = ExerciseBuilder.operatorType(App.Mathematic.OperatorType.Plus, App.Mathematic.OperatorType.Minus)
@@ -61,30 +59,25 @@ module App.Mathematic {
                 .create();
 
             //assert
-            expect(exercise.task.numbers.length).toEqual(10);
+            expect(exercise.tasks.length).toEqual(10);
         });
 
-        it("constructor_generateTasks_returnsObject", () => {
+        it("constructor_operatorTypes_returnsOperatorTypesInRange", () => {
+            // arrange,act
+            var exercise = ExerciseBuilder.operatorType(App.Mathematic.OperatorType.Plus, App.Mathematic.OperatorType.Minus)
+                .operandRange(0, 10)
+                .operandCountRange(5, 6)
+                .resultRange(0, 10)
+                .taskCount(100)
+                .create();
 
-            let exercise = new Excercise([App.Mathematic.OperatorType.Minus, App.Mathematic.OperatorType.Plus, App.Mathematic.OperatorType.Multiplication], 2, 4);
-            expect(exercise).toBeDefined();
-            expect(exercise.tasks.length).toEqual(4);
-            
-            expect(exercise.taskActiveIndex).toEqual(0);
-            expect(exercise.task).toBeDefined();
-
-            let operandsAll = _.all(exercise.tasks, (task) => { return (task.operatorType[0] === App.Mathematic.OperatorType.Minus) || (task.operatorType[0] === App.Mathematic.OperatorType.Plus) });
+            let operandsAll = _.all(exercise.tasks, (task) => {
+                return ((task.operatorTypes[0] === App.Mathematic.OperatorType.Minus)
+                    || (task.operatorTypes[0] === App.Mathematic.OperatorType.Plus));
+            });
 
             expect(operandsAll).toEqual(true);
 
-            var users = [
-                { 'user': 'barney', 'active': true },
-                { 'user': 'fred', 'active': false }
-            ];
-
-            // using the `_.matches` callback shorthand
-            let result = _.some(users, { 'user': 'barney', 'active': false });
-            expect(result).toEqual(false);
         });
 
         it("createNewRandomTask_call_returnsTask", () => {
@@ -97,10 +90,10 @@ module App.Mathematic {
             expect(task.inputResolved).toEqual(false);
             expect(task.inputTyped).toEqual(null);
             expect(task.inputResultType).toEqual(ResultType.None);
-            expect(task.numbers).toBeDefined();
-            expect(task.numbers.length).toEqual(2);
-            expect(task.operatorSymbol).toBeDefined();
-            expect(task.operatorSymbol.length).toEqual(4);
+            expect(task.operands).toBeDefined();
+            expect(task.operands.length).toEqual(2);
+            expect(task.operatorSymbols).toBeDefined();
+            expect(task.operatorSymbols.length).toEqual(4);
         });
 
         it("check_inputTypedIsCorrect_Success", () => {
@@ -114,7 +107,7 @@ module App.Mathematic {
 
             //assert
             expect(task.result).toEqual(task.inputTyped);
-            expect(task.inputResultType).toEqual(ResultType.Success);
+            expect(task.inputResultType).toEqual(ResultType.Success, "Result must be Success");
             expect(task.inputResolved).toEqual(true);
             expect(task.inputFeedback).toEqual("OK");
                
@@ -165,7 +158,7 @@ module App.Mathematic {
             exercise.check(task);
 
             //assert
-            expect(task.inputResultType).toEqual(ResultType.Fixed);
+            expect(task.inputResultType).toEqual(ResultType.Fixed, "Must be fixed");
             expect(task.inputResolved).toEqual(true);
             expect(task.inputFeedback).toEqual("OK");
 
