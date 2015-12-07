@@ -9,7 +9,6 @@
 
     export class Task {
         operatorTypes: App.Mathematic.OperatorType[];
-        operatorSymbols: string[];
         operands: number[];
         result: number;
         inputResultType: ResultType;

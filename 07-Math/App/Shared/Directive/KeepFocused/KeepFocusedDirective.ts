@@ -1,4 +1,4 @@
-﻿module Blocks {
+﻿module App.Shared.Directive {
 
     //------------------------------------------------------
     //---     DIRECTIVE to keep focus on element

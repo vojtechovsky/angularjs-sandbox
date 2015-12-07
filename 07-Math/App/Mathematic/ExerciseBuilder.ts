@@ -11,6 +11,10 @@
         constructor(private _types: App.Mathematic.OperatorType[]) {
         }
 
+        static getName(): string {
+            return "title";
+        }
+
         operandCountRange(min: number, max: number): ExerciseCommand {
             this._operandsCountMin = min;
             this._operandsCountMax = max;
@@ -35,8 +39,8 @@
             return this;
         }
 
-        create(): Excercise {
-            return new Excercise(
+        create(): App.Mathematic.Exercise {
+            return new App.Mathematic.Exercise(
                 this._types, this._operandMin, this._operandMax,
                 this._operandsCountMin, this._operandsCountMax,
                 this._tasksCount,

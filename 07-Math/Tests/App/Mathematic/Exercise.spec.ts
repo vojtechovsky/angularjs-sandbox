@@ -8,7 +8,7 @@
 /// <reference path="../../../app/mathematic/operandtype.ts" />
 /// <reference path="../../../app/mathematic/task.ts" />
 /// <reference path="../../../app/mathematic/mathcontroller.ts" />
-/// <reference path="../../../app/mathematic/excercisebuilder.ts" />
+/// <reference path="../../../app/mathematic/exercisebuilder.ts" />
 /// <reference path="../../../app/mathematic/exercise.ts" />
 /// <chutzpah_reference path="../../../scripts/lodash.min.js" />
 
@@ -32,7 +32,7 @@ module App.Mathematic {
 
         it("constructor_default_createsObject", () => {
             //assert
-            expect(new Excercise()).toBeDefined();
+            expect(new App.Mathematic.Exercise()).toBeDefined();
         });
 
         it("constructor_operandCountRange_excerciseHasFiveOrSixOperandCount", () => {
@@ -81,7 +81,7 @@ module App.Mathematic {
         });
 
         it("createNewRandomTask_call_returnsTask", () => {
-            let exercise = new Excercise(); 
+            let exercise = new App.Mathematic.Exercise(); 
             const task = exercise.createNewRandomTask();
             //write to console
             console.log(JSON.stringify(task, null, 4));
@@ -92,13 +92,11 @@ module App.Mathematic {
             expect(task.inputResultType).toEqual(ResultType.None);
             expect(task.operands).toBeDefined();
             expect(task.operands.length).toEqual(2);
-            expect(task.operatorSymbols).toBeDefined();
-            expect(task.operatorSymbols.length).toEqual(4);
         });
 
         it("check_inputTypedIsCorrect_Success", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result;
 
@@ -115,7 +113,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsInCorrect_Failure", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result+1;
 
@@ -132,7 +130,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrect_Fixed", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result;
             task.numberOfTrial = 1;
@@ -149,7 +147,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrect_Fixed", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             let task = exercise.createNewRandomTask();
             task.inputTyped = task.result;
             task.numberOfTrial = 1;
@@ -166,7 +164,7 @@ module App.Mathematic {
 
         it("next_inputTypedIsCorrect_moveToNext", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             let task = exercise.task;
             task.inputTyped = task.result;
             let currentTaskActiveId = exercise.taskActiveIndex;
@@ -180,7 +178,7 @@ module App.Mathematic {
 
         it("next_inputTypedIsNOTCorrect_moveToNext", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             let task = exercise.task;
             task.inputTyped = task.result+1;
             let currentTaskActiveId = exercise.taskActiveIndex;
@@ -195,7 +193,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrectAndAtTheEndOfTasks_returnsSameTaskId", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             do {
                 exercise.task.inputTyped = exercise.task.result;
                 exercise.next();   
@@ -218,7 +216,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsNOTCorrectAndAtTheEndOfTasks_inputResolvedIsTrue", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             do {
                 exercise.task.inputTyped = exercise.task.result;
                 exercise.next();
@@ -238,7 +236,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsCorrectAfterFailure_inputResolvedIsTrue", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             do {
                 exercise.task.inputTyped = exercise.task.result;
                 exercise.next();
@@ -264,7 +262,7 @@ module App.Mathematic {
 
         it("check_inputTypedIsNOTCorrectAfterFailure_inputResolvedIsTrue", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             do {
                 exercise.task.inputTyped = exercise.task.result;
                 exercise.next();
@@ -290,7 +288,7 @@ module App.Mathematic {
 
         it("next_inputTypedIsInCorrect_movesTonextTaskId", () => {
             //arrange
-            let exercise = new Excercise();
+            let exercise = new App.Mathematic.Exercise();
             let task = exercise.task;
             task.inputTyped = task.result+1;
             let currentTaskActiveId = exercise.taskActiveIndex;

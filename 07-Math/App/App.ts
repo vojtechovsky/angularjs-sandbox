@@ -4,7 +4,9 @@
         static $inject = ["$stateProvider"];
         constructor(private stateHelperProvider: angular.ui.IStateProvider) {
             stateHelperProvider.state(new App.Home.HomeState());
-            stateHelperProvider.state(new App.Mathematic.MathState());
+            stateHelperProvider.state(new App.Mathematic.R1State());
+            stateHelperProvider.state(new App.Mathematic.R2State());
+            stateHelperProvider.state(new App.Mathematic.R3State());
         }
     }
 
@@ -37,5 +39,5 @@
 
     //default route to go on the app initialization
    // app.run(["$state", $state => { $state.transitionTo("home"); }]);
-    app.run(["$state", $state => { $state.transitionTo("mathematic"); }]);
+    app.run(["$state", $state => { $state.transitionTo("home"); }]);
 }

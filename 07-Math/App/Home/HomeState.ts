@@ -2,6 +2,9 @@
     /**
      * Home state definition
      */
+
+
+
     export class HomeState implements angular.ui.IState {
         name = "home";
         url = "/home";
@@ -10,3 +13,4 @@
         templateUrl = "App/Home/HomeView.html";
     }
 }
+

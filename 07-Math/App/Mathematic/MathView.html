@@ -6,7 +6,7 @@
 </div>
 <div class="row">
     <div class="col-sm-2 col-sm-offset-2 highlight text-center">{{controller.Task.operands[0]}}</div>
-    <div class="col-sm-1 highlight text-center">{{controller.Task.operatorSymbols[controller.Task.operand]}}</div>
+    <div class="col-sm-1 highlight text-center">{{controller.mathService.getOperatorSymbol(controller.Task.operatorTypes[0])}}</div>
     <div class="col-sm-2 highlight text-center">{{controller.Task.operands[1]}}</div>
     <div class="col-sm-1 highlight text-center">=</div>
     <div class="col-sm-2 text-center">
@@ -23,15 +23,15 @@
 </div>
 <div class="row">
     <div class="col-sm6 col-sm-offset-6">
-        <button ng-show="controller.Excercise.IsCompleted" ng-click="controller.Excercise.generateTasks()">Refresh</button>
-        <button ng-hide="controller.Excercise.IsCompleted" ng-click="controller.clear()">Clear</button>
-        <button ng-hide="controller.Task.inputResolved" ng-click="controller.Excercise.check(controller.Task)">Ok?</button>
-        <button ng-hide="controller.Excercise.IsCompleted" ng-click="controller.Excercise.next()">Next</button>
+        <button ng-show="controller.Exercise.IsCompleted" ng-click="controller.Exercise.generateTasks()">Refresh</button>
+        <button ng-hide="controller.Exercise.IsCompleted" ng-click="controller.clear()">Clear</button>
+        <button ng-hide="controller.Task.inputResolved" ng-click="controller.Exercise.check(controller.Task)">Ok?</button>
+        <button ng-hide="controller.Exercise.IsCompleted" ng-click="controller.Exercise.next()">Next</button>
         <input type="text" value="" />
     </div>
 </div>
 <div class="row">
-    <span col-md-6 col-md-offset-3 ng-repeat="task in controller.Excercise.tasks" ng-switch on="task.inputResultType">
+    <span col-md-6 col-md-offset-3 ng-repeat="task in controller.Exercise.tasks" ng-switch on="task.inputResultType">
         <span ng-switch-when="0"><i class="fa fa-3x fa-genderless "></i></span>
         <span ng-switch-when="1"><i class="fa fa-3x fa-smile-o text-success"></i></span>
         <span ng-switch-when="2"><i class="fa fa-3x fa-meh-o text-warning"></i></span>
@@ -39,7 +39,7 @@
     </span>
 </div>
 
-<div class="table" ng-repeat="task in controller.Excercise.tasks">
+<div class="table" ng-repeat="task in controller.Exercise.tasks">
     <div class="row" ng-show="task.inputResolved">
         <div class="col-sm-2 text-center">{{task.operands[0]}}</div>
         <div class="col-sm-1 text-center">{{task.operatorSymbols[controller.Task.operand]}}</div>

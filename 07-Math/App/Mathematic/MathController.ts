@@ -5,10 +5,13 @@
     */
     export class MathController {
         public Title = "alive";
-        public Excercise: Excercise;
-        
+
+        static $inject = ["exercise", "mathService"];
+        constructor(private exercise: App.Mathematic.Exercise, private mathService: App.Shared.Service.IMathService) {
+        }
+          
         public get Task() {
-            return this.Excercise.task;
+            return this.exercise.task;
         }
 
 
@@ -27,16 +30,11 @@
          */
         private next(task: Task) {
             if (task.inputResolved) {
-                this.Excercise.next();
+                this.exercise.next();
             } else {
-                this.Excercise.check(task);
+                this.exercise.check(task);
             }
         }
-
-        constructor() {
-            this.Excercise = new Excercise();
-        }
-
     }
 
     //get the application instance

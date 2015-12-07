@@ -4,7 +4,7 @@
      * based class for exercise
      * 
      */
-    export class Excercise {
+    export class Exercise {
 
         constructor(
             private _operatorTypes: App.Mathematic.OperatorType[] = [OperatorType.Plus, OperatorType.Minus],
@@ -44,7 +44,7 @@
         }
 
         /**
-         * it signals the excercise is completed
+         * it signals the exercise is completed
          */
         public isCompleted: boolean;
 
@@ -75,7 +75,7 @@
         public createNewRandomTask(): Task {
             let res = new Task();
             res.operands = [];
-            res.operatorSymbols = ["+", "-", ".", "/"];
+            //res.operatorSymbols = ["+", "-", ".", "/"];
             res.operatorTypes = [];
             res.inputResultType = ResultType.None;
             res.inputTyped = null;
