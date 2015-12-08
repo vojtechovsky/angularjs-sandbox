@@ -9,10 +9,10 @@
             //exercise: () => new App.Mathematic.Exercise()
             exercise: (): Mathematic.Exercise => Mathematic.ExerciseBuilder
                 .operatorType(Mathematic.OperatorType.Plus)
-                .operandRange(0, 10)
+                .operandRange(0, 5)
                 .operandCountRange(5, 6)
                 .resultRange(0, 10)
-                .taskCount(10)
+                .taskCount(2)
                 .create()
         };
     }
@@ -26,8 +26,8 @@
         resolve = {
             //exercise: () => new App.Mathematic.Exercise()
             exercise: (): Mathematic.Exercise => Mathematic.ExerciseBuilder
-                .operatorType(Mathematic.OperatorType.Minus)
-                .operandRange(0, 10)
+                .operatorType(Mathematic.OperatorType.Plus)
+                .operandRange(0, 20)
                 .operandCountRange(5, 6)
                 .resultRange(0, 10)
                 .taskCount(10)
