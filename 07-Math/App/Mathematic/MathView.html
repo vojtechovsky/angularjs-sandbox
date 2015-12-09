@@ -1,8 +1,8 @@
 ﻿<div class="well-large">
     <!-- Default panel contents -->
-    <div class="panel-body">
+    <!--<div class="panel-body">
         <p>Mathematic version 0.1 - {{controller.Title}}</p>
-    </div>
+    </div>-->
 </div>
 <div class="row">
     <div class="col-sm-2 col-sm-offset-2 highlight text-center">{{controller.Task.operands[0]}}</div>
@@ -38,7 +38,7 @@
     </span>
 </div>
 
-<div class="table" ng-repeat="task in controller.exercise.tasks">
+<div class="table" ng-hide="true"  ng-repeat="task in controller.exercise.tasks">
     <div class="row" ng-show="task.inputResolved">
         <div class="col-sm-2 text-center">{{task.operands[0]}}</div>
         <div class="col-sm-1 text-center">{{controller.mathService.getOperatorSymbol(task.operatorTypes[0])}}</div>

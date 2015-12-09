@@ -7,6 +7,9 @@
             stateHelperProvider.state(new App.Mathematic.R1State());
             stateHelperProvider.state(new App.Mathematic.R2State());
             stateHelperProvider.state(new App.Mathematic.R3State());
+            stateHelperProvider.state(new App.Mathematic.R4State());
+            stateHelperProvider.state(new App.Mathematic.R5State());
+            stateHelperProvider.state(new App.Mathematic.R6State());
         }
     }
 
