@@ -2,15 +2,21 @@
     
     class HomeController {
 
-        gotoState : string;
+        gotoState: string;
+        isFront: boolean[];
 
         static $inject = ["$state"];
         constructor(private $state: angular.ui.IStateService) {
             this.gotoState = "mathematic";
+            this.isFront = [];
         }
 
         public getState() {
             this.$state.go(this.gotoState);
+        }
+
+        public toggleClass(id: number) {
+            this.isFront[id] = !this.isFront[id];
         }
 
     }

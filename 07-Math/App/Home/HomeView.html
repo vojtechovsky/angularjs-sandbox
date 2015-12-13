@@ -1,77 +1,397 @@
 ﻿<div class="well-large">
-    <!-- Default panel contents -->
-
-    <div class="row">
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="r1">R1</a>
-            </h1>
+<!-- Default panel contents -->
+<div class="row">
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(0)" ng-class="{'flipped': controller.isFront[0] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r1">R1</a>
+                        </h1>
+                        <p>numbers:0-5</p>
+                        <h2>+</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            R1
+                        </h1>
+                        <p>
+                            From:<b>0</b> to:<b>5</b>
+                        </p>
+                        <p>plus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-10</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="r1">R3</a>
-            </h1>
-        </div>
-
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="r3">R3</a>
-            </h1>
-        </div>
-
     </div>
-    <div class="row">
-
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="r4">R4</a>
-            </h1>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(1)" ng-class="{'flipped': controller.isFront[1] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r2">R2</a>
+                        </h1>
+                        <p>numbers:0-10</p>
+                        <h2>+</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">R2</h1>
+                        <p>
+                            From:<b>0</b> to:<b>10</b>
+                        </p>
+                        <p>plus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-10</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="r5">R5</a>
-            </h1>
-        </div>
-
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="r6">R6</a>
-            </h1>
-        </div>
-
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="mathematic">R7</a>
-            </h1>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(2)" ng-class="{'flipped': controller.isFront[2] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r3">R3</a>
+                        </h1>
+                        <p>numbers:0-10</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">R3</h1>
+                        <p>
+                            From:<b>0</b> to:<b>10</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-10</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="mathematic">R8</a>
-            </h1>
+    </div>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(3)" ng-class="{'flipped': controller.isFront[3] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r4">R4</a>
+                        </h1>
+                        <p>numbers:0-20</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            R4
+                        </h1>
+                        <p>
+                            From:<b>0</b> to:<b>20</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-20</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="col-sm-4">
-            <h1>
-                <a class="" ui-sref="mathematic">R9</a>
-            </h1>
-        </div>
-
     </div>
 </div>
 
-<!--<div class="col-sm4 flip-container" ontouchstart="this.classList.toggle('hover');">
-    <div class="flipper">
-        <div class="front" style="background: url('https://davidwalsh.name/demo/dwflip.jpg') 0 0 no-repeat;">
-            <span class="name">David Walsh</span>
-        </div>
-        <div class="back" style="background:#f8f8f8;">
-            <div class="back-logo"></div>
-            <div class="back-title">@davidwalshblog</div>
-            <p>Mozilla Web Developer, MooTools &amp; jQuery Consultant, MooTools Core Developer, Javascript Fanatic, CSS Tinkerer, PHP Hacker, and web lover.</p>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(4)" ng-class="{'flipped': controller.isFront[4] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r5">R5</a>
+                        </h1>
+                        <p>numbers:0-30</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">R5</h1>
+                        <p>
+                            From:<b>0</b> to:<b>30</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-30</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(5)" ng-class="{'flipped': controller.isFront[5] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r6">R6</a>
+                        </h1>
+                        <p>numbers:0-50</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            R6
+                        </h1>
+                        <p>
+                            From:<b>0</b> to:<b>50</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-50</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(6)" ng-class="{'flipped': controller.isFront[6] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r7">R7</a>
+                        </h1>
+                        <p>numbers:40-80</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            R7
+                        </h1>
+                        <p>
+                            From:<b>40</b> to:<b>80</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 40-80</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(7)" ng-class="{'flipped': controller.isFront[7] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r8">R8</a>
+                        </h1>
+                        <p>numbers:0-100</p>
+                        <h2>+</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            R8
+                        </h1>
+                        <p>
+                            From:<b>0</b> to:<b>100</b>
+                        </p>
+                        <p>plus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-100</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(8)" ng-class="{'flipped': controller.isFront[8] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r9">R9</a>
+                        </h1>
+                        <p>numbers:0-100</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">R9</h1>
+                        <p>
+                            From:<b>0</b> to:<b>100</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-100</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(9)" ng-class="{'flipped': controller.isFront[9] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r10">R10</a>
+                        </h1>
+                        <p>numbers:50-100</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">R10</h1>
+                        <p>
+                            From:<b>50</b> to:<b>100</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 50-100</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(10)" ng-class="{'flipped': controller.isFront[10] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r11">R11</a>
+                        </h1>
+                        <p>numbers:90-120</p>
+                        <h2>+ -</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            R11
+                        </h1>
+                        <p>
+                            From:<b>90</b> to:<b>120</b>
+                        </p>
+                        <p>plus, minus</p>
+                        <p>total count: 8</p>
+                        <p>result: 90-120</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="flip">
+            <div class="card" ng-click="controller.toggleClass(11)" ng-class="{'flipped': controller.isFront[11] }">
+                <div class="face front">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            <a ui-sref="r12">R12</a>
+                        </h1>
+                        <p>numbers:0-200</p>
+                        <h2>+</h2>
+                    </div>
+                </div>
+                <div class="face back">
+                    <div class="well well-sm inner">
+                        <h1 class="text-center">
+                            R12
+                        </h1>
+                        <p>
+                            From:<b>0</b> to:<b>200</b>
+                        </p>
+                        <p>plus</p>
+                        <p>total count: 8</p>
+                        <p>result: 0-200</p>
+                        <p>operands count: 2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--
+<div class="col-sm4 flip-container" ng-class="{'hover': controller.isFront[0] }">
+
+onclick="this.classList.toggle('hover');
+<div class="flipper">
+    <div class="front" style="background: url('https://davidwalsh.name/demo/dwflip.jpg') 0 0 no-repeat;">
+        <span class="name">David Walsh</span>
+    </div>
+    <div class="back" style="background: #a4a4a4;">
+        <div class="back-logo"></div>
+        <div class="back-title">@davidwalshblog</div>
+        <p>Mozilla Web Developer, MooTools &amp; jQuery Consultant, MooTools Core Developer, Javascript Fanatic, CSS Tinkerer, PHP Hacker, and web lover.</p>
+    </div>
 </div>-->
+
+<!--
+
+<div class="col-sm4 flip-container" ng-class="{'hover': controller.isFront[0] }">
+    <div class="flipper">
+        <div class="front">
+            front
+        </div>
+        <div class="back">
+            back
+        </div>
+    </div>
+</div>
+
+<button ng-click="controller.toggleClass(0)">
+    toggle
+</button>
+
+
+<div class="col-sm4 flip-container3" ng-click="controller.toggleClass(2)" ng-class="{'hover': controller.isFront[2] }">
+
+    <div class="flipper">
+        <div class="front">
+            front
+        </div>
+        <div class="back">
+            <a class="" ui-sref="r3">R3</a>
+        </div>
+    </div>
+
+</div>
+-->

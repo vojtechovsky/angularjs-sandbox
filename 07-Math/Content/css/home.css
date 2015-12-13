@@ -1,68 +1,40 @@
-﻿/* entire container, keeps perspective */
-.flip-container {
-	perspective: 1000;
-	transform-style: preserve-3d;
-}
-	/*  UPDATED! flip the pane when hovered */
-	.flip-container:hover .back {
-		transform: rotateY(0deg);
-	}
-	.flip-container:hover .front {
-	    transform: rotateY(180deg);
-	}
+﻿.flip {
+    -webkit-perspective: 800;
+    perspective: 800;
 
-.flip-container, .front, .back {
-	width: 320px;
-	height: 480px;
+    position: relative;
+    text-align: center;
 }
 
-/* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: relative;
+.flip .card.flipped {
+    -webkit-transform: rotatey(-180deg);
+    transform: rotatey(-180deg);
 }
 
-/* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
-	transition: 0.6s;
-	transform-style: preserve-3d;
-
-	position: absolute;
-	top: 0;
-	left: 0;
+.flip .card {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: 0.5s;
 }
 
-/*  UPDATED! front pane, placed above back */
-.front {
-	z-index: 2;
-	transform: rotateY(0deg);
+.flip .card .face {
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 2;   
 }
 
-/* back, initially hidden pane */
-.back {
-	transform: rotateY(-180deg);
+.flip .card .front {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }
 
-/* 
-	Some vertical flip updates 
-*/
-.vertical.flip-container {
-	position: relative;
+.flip .card .back {
+    -webkit-transform: rotatey(-180deg);
+    transform: rotatey(-180deg);
 }
 
-	.vertical .back {
-		transform: rotateX(180deg);
-	}
-
-	.vertical.flip-container:hover .back {
-	    transform: rotateX(0deg);
-	}
-
-	.vertical.flip-container:hover .front {
-	    transform: rotateX(180deg);
-	}
-
-/*//https://davidwalsh.name/demo/logo.png*/
+.inner { margin: 0px !important; }

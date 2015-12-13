@@ -10,6 +10,12 @@
             stateHelperProvider.state(new App.Mathematic.R4State());
             stateHelperProvider.state(new App.Mathematic.R5State());
             stateHelperProvider.state(new App.Mathematic.R6State());
+            stateHelperProvider.state(new App.Mathematic.R7State());
+            stateHelperProvider.state(new App.Mathematic.R8State());
+            stateHelperProvider.state(new App.Mathematic.R9State());
+            stateHelperProvider.state(new App.Mathematic.R10State());
+            stateHelperProvider.state(new App.Mathematic.R11State());
+            stateHelperProvider.state(new App.Mathematic.R12State());
         }
     }
 
