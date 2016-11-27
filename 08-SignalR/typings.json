@@ -1,0 +1,6 @@
+{
+  "dependencies": {},
+  "globalDependencies": {
+    "angular-formly": "registry:dt/angular-formly#7.2.3+20160316171810"
+  }
+}

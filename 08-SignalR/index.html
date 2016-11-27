@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>01 - Controller</title>
+    <link rel="stylesheet" href="Content/bootstrap.css"/>
+</head>
+<body ng-app="AppSignalR">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand">Controller</div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div ng-include="'App/Chat/ChatView.html'"></div>
+    </div>
+    <!-- Library Scripts -->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/jquery.signalR-2.1.2.min.js"></script>
+
+    <!-- Application Script -->
+    <script src="App/App.js"></script>
+
+    <!-- Domain Classes -->
+    <!-- Services -->
+    <!-- Controllers -->
+    <script src="App/Chat/ChatController.js"></script>
+
+</body>
+</html>

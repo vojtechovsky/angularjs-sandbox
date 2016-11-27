@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-ControllerDomainObjects", "01-ControllerDomainObjects\01-ControllerDomainObjects.csproj", "{5D6A4B0E-5EA0-41BB-94D7-2B36C3E8AE83}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-Dashboard", "05-Dashboard\05-Dashboard.csproj", "{032151FD-4503-4E50-8C9D-E0EC295B6AED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-Directives", "06-Directives\06-Directives.csproj", "{BA94117E-AB70-45D8-880E-62877773BA5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08-SignalR", "08-SignalR\08-SignalR.csproj", "{BB76F214-C2E9-49E0-BD8A-84DD57C64AB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{BA94117E-AB70-45D8-880E-62877773BA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA94117E-AB70-45D8-880E-62877773BA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA94117E-AB70-45D8-880E-62877773BA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB76F214-C2E9-49E0-BD8A-84DD57C64AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB76F214-C2E9-49E0-BD8A-84DD57C64AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB76F214-C2E9-49E0-BD8A-84DD57C64AB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB76F214-C2E9-49E0-BD8A-84DD57C64AB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
